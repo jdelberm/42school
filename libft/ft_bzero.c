@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/29 15:16:49 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:25:36 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 
 	printf("Standard: before modification => %s\n", str);
 	bzero(ptr, nullable);
-	printf("Standard: after nullying from '.' character => %s\n", nullable, str);
+	printf("Standard: after nullying from '.' character => %s\n", str);
 
 	str[26] = *"Nullable past dot .string";
 	ptr = &str[19];
@@ -42,5 +42,5 @@ int	main(void)
 
 	printf("Custom: before modification => %s\n", str);
 	ft_bzero(ptr, nullable);
-	printf("Custom: after nullying from '.' character => %s\n", nullable, str);
+	printf("Custom: after nullying from '.' character => %s\n", str);
 }
