@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/29 15:25:36 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:39:28 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,24 @@ void ft_bzero(void *s, size_t n)
 	
 	str = (char *) s;
 	i = 0;
-	while(i++ < n)
-		str[i]= '\0';
+	while(i < n)
+		str[i++]= '\0';
 }
 
 int	main(void)
 {
-	char	str[26] = "Nullable past dot .string";
+	char	str[26] = "To null past dot: .string";
 	char 	*ptr = &str[19];
 	size_t	nullable = 1;
 
-	printf("Standard: before modification => %s\n", str);
+	printf("Standard: before modification =>\t\t'%s'\n", str);
 	bzero(ptr, nullable);
-	printf("Standard: after nullying from '.' character => %s\n", str);
+	printf("Standard: after nullying from '.' character =>\t'%s'\n", str);
 
-	str[26] = *"Nullable past dot .string";
-	ptr = &str[19];
-	nullable = 1;
+	char str2[26] = "To null past one: 1string";
+	ptr = &str2[19];
 
-	printf("Custom: before modification => %s\n", str);
+	printf("Custom: before modification =>\t\t\t'%s'\n", str2);
 	ft_bzero(ptr, nullable);
-	printf("Custom: after nullying from '.' character => %s\n", str);
+	printf("Custom: after nullying from '.' character =>\t'%s'\n", str2);
 }
