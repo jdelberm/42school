@@ -12,6 +12,7 @@ LNAME = libft.a
 
 $(LNAME): $(OFILES)
 	ar rcs $(LNAME) $(OFILES)
+	make clean
 
 #This structure avoids relinking
 #ft_strlen: ft_strlen.c
