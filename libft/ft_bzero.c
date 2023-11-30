@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 08:30:59 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/11/30 07:47:50 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	str = (char *)s;
 	i = 0;
