@@ -1,9 +1,8 @@
 #Compiler and flags
-CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 #FT functions to include in the makefile
-CFILES = ft_strlen.c
+CFILES = $(wildcard ft*.c)
 
 #All the object files prior to the linking
 OFILES = $(CFILES:%.c=%.o)
@@ -11,8 +10,8 @@ OFILES = $(CFILES:%.c=%.o)
 #Library name
 LNAME = libft.a
 
-$(LNAME):
-	$(CC) $(CFLAGS) $(OFILES) -o $(LNAME)
+$(LNAME): $(OFILES)
+	ar rcs $(LNAME) $(OFILES)
 
 #This structure avoids relinking
 #ft_strlen: ft_strlen.c
@@ -28,8 +27,8 @@ clean:
 	rm -f $(OFILES)
 
 #Launchs clean command and removes the library
-fclean: 
-	clean rm -f $(LNAME)
+fclean: clean
+	rm -f $(LNAME)
 
 #Rebuild action
 re: fclean $(LNAME)
