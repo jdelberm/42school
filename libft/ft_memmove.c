@@ -6,19 +6,20 @@
 /*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:53:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 08:33:43 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/11/30 07:46:30 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*tmp;
 	char	*str_src;
 	char	*str_dest;
-	int		i;
+	size_t	i;
 
 	tmp = malloc(n * sizeof(char));
 	str_src = (char *)src;
@@ -35,6 +36,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		str_dest[i] = tmp[i];
 		i++;
 	}
+	return dest;
 }
 
 int	main(void)
