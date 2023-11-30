@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:21:17 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/29 19:28:13 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/11/30 07:46:26 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*str_dest;
 	char	*str_src;
 
@@ -30,6 +30,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		str_dest[i] = str_src[i];
 		i++;
 	}
+	return dest;
 }
 
 int	main(void)
