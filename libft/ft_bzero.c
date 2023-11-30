@@ -6,31 +6,32 @@
 /*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/29 15:39:28 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/11/30 08:26:59 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: review in python tutor if the amounts of NULL's added corresponds to N
-//TODO: comment main after testing
-//TODO: review norminette
-#include <string.h>
+// TODO: review in python tutor if the amounts of NULL's added corresponds to N
+// TODO: comment main after testing
+// TODO: review norminette
 #include <stdio.h>
-void ft_bzero(void *s, size_t n)
+#include <string.h>
+
+void	ft_bzero(void *s, size_t n)
 {
 	char	*str;
 	int		i;
-	
-	str = (char *) s;
+
+	str = (char *)s;
 	i = 0;
-	while(i < n)
-		str[i++]= '\0';
+	while (i < n)
+		str[i++] = '\0';
 }
 
 int	main(void)
 {
-	char	str[26] = "To null past dot: .string";
-	char 	*ptr = &str[19];
-	size_t	nullable = 1;
+	char str[26] = "To null past dot: .string";
+	char *ptr = &str[19];
+	size_t nullable = 1;
 
 	printf("Standard: before modification =>\t\t'%s'\n", str);
 	bzero(ptr, nullable);
