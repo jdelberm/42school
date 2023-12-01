@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:24:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 20:28:15 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:03:44 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 // TODO:  update ft_strstr to ft_strnstr
 #include <string.h>
 
+/*
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 }
 
 int	main(void)
 {
-}
+}*/
