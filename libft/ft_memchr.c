@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:34:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 19:55:51 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:16:27 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(void)
 	printf("custom fn\t=> '%p'\n\n", ft_memchr(str, tgt, nbytes));
 
 	nbytes = 5;
-	printf("String => \"%s\"\n\n", str);
 	printf("Looking for char '%c' in %li characters:\n", tgt, nbytes);
 	printf("standard fn\t=> '%p'\n", memchr(str, tgt, nbytes));
 	printf("custom fn\t=> '%p'\n\n", ft_memchr(str, tgt, nbytes));
