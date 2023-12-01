@@ -6,50 +6,80 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:28:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 20:35:36 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:39:58 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include <stdio.h>
 
 int	ft_atoi(const char *ptr)
 {
 	int	num;
 	int	sign;
-	int	nlen;
 
 	num = 0;
 	sign = 1;
 	while (*ptr == ' ' || *ptr == '\f' || *ptr == '\n' || *ptr == '\r'
 		|| *ptr == '\t' || *ptr == '\v')
 		ptr++;
-	if (!(*ptr == '-' || *ptr == '+'))
-		return (num);
-	else
+	if (*ptr == '-' || *ptr == '+')
 	{
 		if (*ptr == '-')
 		{
 			sign *= -1;
-			ptr++;
 		}
+		ptr++;
 	}
-	nlen = ft_strlen(*ptr);
 	while (*ptr >= '0' && *ptr <= '9')
 	{
-		num += (*ptr - 48) nlen--;
+		num = (num * 10) + (*ptr - 48);
+		ptr++;
 	}
+	return (num * sign);
 }
 
 int	main(void)
 {
+	char *str_a = "1234";
+	printf("Conversion of %s to integer:\n", str_a);
+	printf("\tstandard fn\t=> %i\n", atoi(str_a));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_a));
+
+	char *str_b = "+1234";
+	printf("Conversion of %s to integer:\n", str_b);
+	printf("\tstandard fn\t=> %i\n", atoi(str_b));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_b));
+
+	char *str_c = "++-1234";
+	printf("Conversion of %s to integer:\n", str_c);
+	printf("\tstandard fn\t=> %i\n", atoi(str_c));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_c));
+
+	char *str_d = "-1234";
+	printf("Conversion of %s to integer:\n", str_d);
+	printf("\tstandard fn\t=> %i\n", atoi(str_d));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_d));
+
+	char *str_e = "--1234";
+	printf("Conversion of %s to integer:\n", str_e);
+	printf("\tstandard fn\t=> %i\n", atoi(str_e));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_e));
+	
+
+	char *str_f = "1";
+	printf("Conversion of %s to integer:\n", str_f);
+	printf("\tstandard fn\t=> %i\n", atoi(str_f));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_f));
+	
+	char *str_g = "-2147483648";
+	printf("Conversion of %s to integer:\n", str_g);
+	printf("\tstandard fn\t=> %i\n", atoi(str_g));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_g));
+
+	char *str_h = "2147483649";
+	printf("Conversion of %s to integer:\n", str_h);
+	printf("\tstandard fn\t=> %i\n", atoi(str_h));
+	printf("\tcustom fn\t=> %i\n", ft_atoi(str_h));
+	
 }
