@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:22:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 18:53:10 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:03:21 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 			}
 		}
 	}
+	return (size + i);
 }
 
 int	main(void)
