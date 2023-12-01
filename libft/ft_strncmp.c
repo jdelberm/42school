@@ -6,12 +6,13 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:28:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:05:42 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:03:29 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // TODO: copy ft_strncmp from C03: ex01
 
+#include <stdio.h>
 #include <string.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
