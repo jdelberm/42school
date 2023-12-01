@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:54:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 20:47:07 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:04:12 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(void)
 	printf("standard fn\t=> '%c'\n", toupper(c));
 	printf("custom fn\t=> '%c'\n\n", ft_toupper(c));
 
-	c = '€';
+	c = 127;
 	printf("Passing '%c' to upper with\n", c);
 	printf("standard fn\t=> '%c'\n", toupper(c));
 	printf("custom fn\t=> '%c'\n\n", ft_toupper(c));
