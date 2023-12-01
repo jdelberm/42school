@@ -10,18 +10,13 @@ OFILES = $(CFILES:%.c=%.o)
 #Library name
 LNAME = libft.a
 
+#Performs the linking and stores the result in the library name
 $(LNAME): $(OFILES)
 	ar rcs $(LNAME) $(OFILES)
 	make clean
 
-#This structure avoids relinking
-#ft_strlen: ft_strlen.c
-#	cc ft_strlen.c -o ft_strlen
-
 #Check if the library is already created and stops if so
 all: $(LNAME) clean
-
-#Performs the linking and stores the result in the library name
 
 #Removes the .o files
 clean:
