@@ -8,15 +8,15 @@ CFILES = $(wildcard ft*.c)
 OFILES = $(CFILES:%.c=%.o)
 
 #Library name
-LNAME = libft.a
+NAME = libft.a
 
 #Performs the linking and stores the result in the library name
-$(LNAME): $(OFILES)
-	ar rcs $(LNAME) $(OFILES)
+$(NAME): $(OFILES)
+	ar rcs $(NAME) $(OFILES)
 	make clean
 
 #Check if the library is already created and stops if so
-all: $(LNAME) clean
+all: $(NAME) clean
 
 #Removes the .o files
 clean:
@@ -24,9 +24,9 @@ clean:
 
 #Launchs clean command and removes the library
 fclean: clean
-	rm -f $(LNAME)
+	rm -f $(NAME)
 
 #Rebuild action
-re: fclean $(LNAME)
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re
