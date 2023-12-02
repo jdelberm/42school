@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:40:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:13:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:02:06 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isalpha(int c)
 		return (1024);
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	char c;
@@ -38,4 +38,4 @@ int	main(void)
 	printf("Check if character '%c' is alpha:\n", c);
 	printf("\tstandard fn\t=> %i\n", isalpha(c));
 	printf("\tcustom fn\t=> %i\n\n", ft_isalpha(c));
-}
+}*/

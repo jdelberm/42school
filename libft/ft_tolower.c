@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:04:49 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 20:04:08 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:05:41 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
+/*
 int	main(void)
 {
 	unsigned char c;
@@ -43,4 +43,4 @@ int	main(void)
 	printf("Passing '%c' to lower with\n", c);
 	printf("standard fn\t=> '%c'\n", tolower(c));
 	printf("custom fn\t=> '%c'\n\n", ft_tolower(c));
-}
+}*/

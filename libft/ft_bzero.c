@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judelgad <judelgad@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/11/30 07:47:50 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:01:37 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_bzero(void *s, size_t n)
 	while (i < n)
 		str[i++] = '\0';
 }
-
+/*
 int	main(void)
 {
 	char str[26] = "To null past dot: .string";
@@ -42,4 +42,4 @@ int	main(void)
 	printf("Custom: before modification =>\t\t\t'%s'\n", str2);
 	ft_bzero(ptr, nullable);
 	printf("Custom: after nullying from '.' character =>\t'%s'\n", str2);
-}
+}*/

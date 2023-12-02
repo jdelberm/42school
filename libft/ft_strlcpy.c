@@ -6,18 +6,37 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:22:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 20:03:21 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 20:36:30 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	src_len;
 
+	src_len = (size_t)ft_strlen((char *)src);
+	if (size == 0)
+	{
+
+	dst[size] = 0;
+		return (src_len);
+	}
 	i = 0;
-	while (dst[i])
+	/*
+	while (i < size - 1 && src_len)
 	{
 		if (src[i])
 		{
@@ -32,16 +51,23 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 				i++;
 			}
 		}
+	}*/
+	while (i < size - 1 && src_len)
+	{
+		dst[i] = src[i];
+		i++;
 	}
-	return (size + i);
+	dst[size - 1] = 0;
+	return (src_len);
 }
-
+/*
 int	main(void)
 {
-	char *src = "Start of a sentence";
+	char *src = "";
 	char dst[59] = "Overwrite this part, the rest of the text will be the same";
+	char dst2[10] = "Over";
 
-	printf("Custom: before\t=> %s\n", dst);
-	ft_strlcpy(dst, src, sizeof(dst));
-	printf("Custom: after\t=> %s\n", dst);
-}
+	printf("Custom: before\t=> %s\n", dst2);
+	ft_strlcpy(dst2, src, sizeof(dst2));
+	printf("Custom: after\t=> %s\n", dst2);
+}*/

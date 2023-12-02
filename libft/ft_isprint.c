@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:50:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:10:34 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:02:33 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isprint(int c)
 		return (16384);
 	return (0);
 }
-
+/*
 int	main(void)
 {
 	char c;
@@ -33,4 +33,4 @@ int	main(void)
 	printf("Check if character '%c' is alpha:\n", c);
 	printf("\tstandard fn\t=> %i\n", isprint(c));
 	printf("\tcustom fn\t=> %i\n\n", ft_isprint(c));
-}
+}*/

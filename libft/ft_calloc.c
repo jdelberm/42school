@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:40:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 15:53:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:01:45 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (&"\0");
 	return (malloc(nmemb * size));
 }
-
+/*
 int	main(void)
 {
 	char *sentence = "This is a sentence";
@@ -59,4 +59,4 @@ int	main(void)
 	printf("Destiny string with nmemb == 0 && size == 0:\n");
 	printf("\tstandard\t=> %s\n", dest_std);
 	printf("\tstandard\t=> %s\n\n", dest_cust);
-}
+}*/

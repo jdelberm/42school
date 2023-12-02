@@ -16,7 +16,7 @@ $(NAME): $(OFILES)
 	make clean
 
 #Check if the library is already created and stops if so
-all: $(NAME) clean
+all: $(NAME)
 
 #Removes the .o files
 clean:

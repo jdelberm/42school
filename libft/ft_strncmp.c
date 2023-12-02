@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:28:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 20:03:29 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:20:21 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	res = us1[i] - us2[i];
 	return (res);
 }
-
+/*
 int	main(void)
 {
 	char *str_a = "";
@@ -65,4 +65,4 @@ int	main(void)
 	printf("Compare %li char/s of \"%s\" & \"%s\":\n", len, str_g, str_h);
 	printf("\tstandard fn\t=> %i\n", strncmp(str_g, str_h, len));
 	printf("\tcustom fn\t=> %i\n\n", ft_strncmp(str_g, str_h, len));
-}
+}*/

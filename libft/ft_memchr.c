@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:34:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:16:27 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:02:46 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
+/*
 int	main(void)
 {
 	char *str = "This is an array of characters";
@@ -58,4 +59,4 @@ int	main(void)
 	printf("Looking for char '%c' in %li characters:\n", tgt, nbytes);
 	printf("standard fn\t=> '%p'\n", memchr(str, tgt, nbytes));
 	printf("custom fn\t=> '%p'\n\n", ft_memchr(str, tgt, nbytes));
-}
+}*/

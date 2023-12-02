@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:44:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:01:19 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:03:57 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (size + j);
 }
-
+/*
 int	main(void)
 {
 	char *src = " this other text";
@@ -51,4 +51,4 @@ int	main(void)
 	printf("\tString 2\t=> \"%s\"\n", dst);
 	val = ft_strlcat(dst, src, sizeof(dst));
 	printf("\tcustom fn (return: %i)\t=> \"%s\"\n", val, dst);
-}
+}*/

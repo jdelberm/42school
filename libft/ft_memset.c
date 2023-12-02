@@ -6,27 +6,23 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:15:03 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:27:10 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:03:37 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-void	*ft_memset(const void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ustr;
-	size_t			i;
 
 	ustr = (unsigned char *)s;
-	i = 0;
-	while (ustr[i] && i < n)
-	{
-		ustr[i] = c;
-		i++;
-	}
-	return ((void *)s);
+	while (n--)
+		*ustr++ = (unsigned char)c;
+	return (s);
 }
+/*
 int	main(void)
 {
 	char str[31] = "This is an array of characters";
@@ -67,4 +63,4 @@ int	main(void)
 	printf("standard fn\t=> '%s'\n", rt);
 	rt = (unsigned char *)ft_memset(str, c, nbytes);
 	printf("custom fn\t=> '%s'\n\n", rt);
-}
+}*/
