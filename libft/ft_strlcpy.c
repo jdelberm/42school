@@ -6,59 +6,27 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:22:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 20:36:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:29:37 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	src_len;
 
-	src_len = (size_t)ft_strlen((char *)src);
-	if (size == 0)
-	{
-
-	dst[size] = 0;
-		return (src_len);
-	}
 	i = 0;
-	/*
-	while (i < size - 1 && src_len)
+	if (size > 0)
 	{
-		if (src[i])
+		while (src[i] && i < size - 1)
 		{
 			dst[i] = src[i];
 			i++;
 		}
-		else
-		{
-			while (i < size)
-			{
-				dst[i] = '\0';
-				i++;
-			}
-		}
-	}*/
-	while (i < size - 1 && src_len)
-	{
-		dst[i] = src[i];
-		i++;
+		dst[i] = 0;
 	}
-	dst[size - 1] = 0;
-	return (src_len);
+	return (ft_strlen(src));
 }
 /*
 int	main(void)

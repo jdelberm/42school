@@ -6,12 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:08:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:02:00 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:31:17 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

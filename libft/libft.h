@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:55:11 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:37:54 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:29:43 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int		ft_atoi(const char *ptr);
 void	ft_bzero(void *s, size_t n);

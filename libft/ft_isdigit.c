@@ -6,12 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:45:15 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:41:14 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:31:30 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

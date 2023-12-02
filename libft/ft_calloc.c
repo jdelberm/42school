@@ -6,12 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:40:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:01:45 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:31:13 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

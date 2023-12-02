@@ -6,12 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:28:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 16:58:11 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:31:01 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_atoi(const char *ptr)
 {

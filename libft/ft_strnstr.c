@@ -6,22 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:24:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:38:52 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:29:29 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strnstr(char *str, char *to_find, size_t len)
 {
