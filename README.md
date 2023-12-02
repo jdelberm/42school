@@ -8,8 +8,9 @@
 
 The idea is to keep the repository updated with all the projects completed by myself along the cursus duration.
 ## Tracking 
-### Projects finished
+### Finished projects
 |Lang| Name | Short description |
+|-|-|-|
 |-|-|-|
 ### Projects in progress
 |Lang| Name | Short description |
