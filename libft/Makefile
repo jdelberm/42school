@@ -13,7 +13,6 @@ NAME = libft.a
 #Performs the linking and stores the result in the library name
 $(NAME): $(OFILES)
 	ar rcs $(NAME) $(OFILES)
-	make clean
 
 #Check if the library is already created and stops if so
 all: $(NAME)
