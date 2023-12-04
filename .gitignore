@@ -1,3 +1,4 @@
-*/a.out
-*/test.c
-*/settings.json
+libft/a.out
+libft/test.c
+libft/*.json
+libft/*.o
