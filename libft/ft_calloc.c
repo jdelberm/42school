@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:40:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:13 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/04 01:08:55 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,19 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (nmemb == 0 || size == 0)
-		return (&"\0");
-	return (malloc(nmemb * size));
+	char	*ptr;
+	size_t	i;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (i < nmemb)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (ptr);
 }
 /*
 int	main(void)

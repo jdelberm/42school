@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:18:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:05:06 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/03 23:48:56 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 // FIXME: arreglame cabron
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*found;
+	char			*found;
+	unsigned char	uc;
 
+uc = c;
 	found = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == uc)
 			found = (char *)s;
 		s++;
 	}
+	if (*s == uc)
+			return ((char *)s);
 	return (found);
 }
 /*

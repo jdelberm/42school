@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:54:46 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:30:45 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/04 00:26:32 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ char	*ft_strdup(const char *s)
 	char	*dst;
 	int		i;
 
-	dst = malloc(ft_strlen(s) * sizeof(char));
+	dst = malloc(ft_strlen(s) + 1 * sizeof(char));
+	if (!dst)
+		return (0);
 	i = 0;
 	while (s[i])
 	{
 		dst[i] = s[i];
 		i++;
 	}
+	dst[i] = s[i];
 	return (dst);
 }
 /*
