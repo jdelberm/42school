@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:53:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:33:41 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:48:18 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*str_src;
-	char	*str_dest;
 	size_t	i;
 
-	str_src = (char *)src;
-	str_dest = (char *)dest;
-	i = 0;
-	while ( i < n)
+	if (!dest && !src)
+		return (dest);
+	if (src < dest)
 	{
-		if(&((char *)dest)[i] != &((char *)src)[0])
-			break;
-		str_dest[i] = str_src[i];
-		i++;
+		i = n;
+		while (i > 0)
+		{
+			i--;
+			((char *)dest)[i] = ((char *)src)[i];
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
+		}
 	}
 	return (dest);
 }
-
+/*
 int	main(void)
 {
 char	dest[33] = "It was a pleasure, I have to go!";
@@ -60,4 +68,4 @@ psrc = &sentence2[0];
 printf("Custom: before\t=> '%s'\n", sentence2);
 ft_memmove(pdest, psrc, nbytes);
 printf("Custom: after\t=> '%s'\n\n", sentence2);
-}
+}*/
