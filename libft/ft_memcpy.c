@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:21:17 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/04 01:30:09 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:30:50 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,25 @@
 // TODO: review norminette
 
 #include "libft.h"
+#include <signal.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	char	*str_dest;
-	char	*str_src;
-	void	*empty;
 
-	empty = 0;
-
-	if (dest == empty)
-		return (0);
-	if (!ft_strlen(dest))
-		return (0);
-	str_dest = (char *)dest;
-	str_src = (char *)src;
+	if (dest == 0 && src == 0)
+		return (dest);
 	i = 0;
 	while (i < n)
 	{
-		str_dest[i] = str_src[i];
+		((char *)dest)[i] = ((char *)src)[i];
 		i++;
 	}
 	return (dest);
 }
 /*
 int	main(void)
-{ 
+{
 		char dest[33] = "It was a pleasure, I have to go!";
 		char dest2[33] = "It was a pleasure, I have to go!";
 		char *src = "Please real quick";
