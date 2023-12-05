@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:30:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 16:57:27 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 22:16:28 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (start == 0 && len == (size_t)-1)
 		return (ft_strdup(s));
-	if (start >= ft_strlen(s))
+	else if (start >= ft_strlen(s))
 		return (ft_strdup(""));
-	if (len >= ft_strlen(s))
+	else if (len >= ft_strlen(s))
+	{
 		chunk = ft_calloc(ft_strlen(s) + 1 - start, sizeof(char));
+		if (!chunk)
+			return (0);
+	}
+	else if (start + len >= ft_strlen(s))
+		return (ft_strdup(&s[start]));
 	else
+	{
 		chunk = ft_calloc(len + 1, sizeof(char));
-	if (!chunk)
-		return (0);
+		if (!chunk)
+			return (0);
+	}
 	ft_strlcpy(chunk, &s[start], len + 1);
 	return (chunk);
 }
