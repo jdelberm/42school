@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:56:21 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/03 23:54:22 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:43:21 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	int				res;
 
 	if (n == 0)
-		return 0;
+		return (0);
 	us1 = (unsigned char *)s1;
 	us2 = (unsigned char *)s2;
 	i = 0;

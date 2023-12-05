@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:06:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/03 23:47:42 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:43:14 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char uc;
+	unsigned char	uc;
 
 	uc = c;
 	while (*s)
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	}
 	if (*s == uc)
-			return ((char *)s);
+		return ((char *)s);
 	return (0);
 }
 /*
