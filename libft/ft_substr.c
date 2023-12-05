@@ -6,37 +6,35 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:30:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 11:44:25 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:57:27 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
+#include <unistd.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*chunk;
-	size_t	i;
-	size_t	j;
 
-	chunk = malloc(len * sizeof(char));
+	if (start == 0 && len == (size_t)-1)
+		return (ft_strdup(s));
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len >= ft_strlen(s))
+		chunk = ft_calloc(ft_strlen(s) + 1 - start, sizeof(char));
+	else
+		chunk = ft_calloc(len + 1, sizeof(char));
 	if (!chunk)
 		return (0);
-	i = start;
-	j = 0;
-	while (s[i + j] && j < len)
-	{
-		chunk[j] = s[i + j];
-		j++;
-	}
+	ft_strlcpy(chunk, &s[start], len + 1);
 	return (chunk);
 }
 /*
 int	main(void)
 {
-	char *str = "Hold my juice and watch this";
-	char *substr;
+	char	str[] = "lorem ipsum dolor sit amet";
+	char	*substr;
 	int start;
 	int len;
 
@@ -44,7 +42,7 @@ int	main(void)
 
 	start = 5;
 	len = 8;
-	substr = ft_substr(str, start, len);
+	substr = ft_substr(str, 0, 10);
 	printf("Substring of %i characters at index %i returns:\n", start, len);
 	printf("\tcustom fn\t=> \"%s\"\n\n", substr);
 
