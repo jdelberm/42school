@@ -6,16 +6,16 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:55:11 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 12:51:47 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:30:17 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 
 int		ft_atoi(const char *ptr);
 void	ft_bzero(void *s, size_t n);
@@ -40,5 +40,6 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
