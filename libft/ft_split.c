@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/06 20:11:39 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:14:54 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,15 @@ char	**ft_split(char const *s, char c)
 	}
 	return (splits);
 }
-/*
+
 int	main(void)
 {
-		 char *s = "      split       this for   me  !       ";
- 
-        char **result = ft_split(s, ' ');
-        while (*result)
-        {
-                if (strcmp(*result, *expected))
-                {
-                        exit(TEST_FAILED);
-                }
-                result++;
-                expected++;
-        }
-        exit(TEST_SUCCESS);
-}*/
+	char *s = "      split       this for   me  !       ";
+
+	char **result = ft_split(s, ' ');
+	while (*result)
+	{
+		printf("\nresult  => \"%s\"", *result);
+		result++;
+	}
+}
