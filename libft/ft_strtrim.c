@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:39:02 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/06 01:33:01 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/06 01:33:42 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_find_start(char const *s1, char const *set)
 	}
 	return (start);
 }
+
 int	ft_find_end(char const *s1, char const *set)
 {
 	size_t	i;
@@ -50,6 +51,7 @@ int	ft_find_end(char const *s1, char const *set)
 	}
 	return (end);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
