@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 10:55:39 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 11:07:01 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,15 @@ char	*ft_get_word(char *str, char delim, size_t start, size_t len)
 		return (0);
 	trimmed = ft_strtrim(substr, &delim);
 	free(substr);
+	if (!trimmed)
+		return (0);
 	return (trimmed);
+}
+
+void	ft_free_splits(char **splits, size_t len)
+{
+	while (len-- > 0)
+		free(splits[len]);
 }
 
 char	**ft_split(char const *s, char c)
@@ -82,10 +90,11 @@ char	**ft_split(char const *s, char c)
 			if (!word)
 			{
 				free(str);
+				ft_free_splits(splits, count + 1);
+				free(splits);
 				return (0);
 			}
 			splits[k++] = word;
-			// free(word);
 			j = i;
 			while (str[i] == c)
 				i++;
@@ -97,10 +106,11 @@ char	**ft_split(char const *s, char c)
 			if (!word)
 			{
 				free(str);
+				ft_free_splits(splits, count + 1);
+				free(splits);
 				return (0);
 			}
 			splits[k] = word;
-			// free(word);
 		}
 	}
 	free(str);
