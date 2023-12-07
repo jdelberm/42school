@@ -6,13 +6,22 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:30:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 22:16:28 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:19:00 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
+/**
+ * Copies a substring from the given string starting at the specified index
+ * and with the specified length.
+ *
+ * @param s The string to extract the substring from.
+ * @param start The starting index of the substring.
+ * @param len The length of the substring.
+ * @return The extracted substring, or NULL if memory allocation fails.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*chunk;

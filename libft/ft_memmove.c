@@ -6,12 +6,22 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:53:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 11:49:45 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:25:43 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Copies a block of memory from a source address to a destination address.
+ *
+ * @param dest The pointer to the destination address where the memory will be
+ *  copied to.
+ * @param src The pointer to the source address where the memory will be
+ *  copied from.
+ * @param n The number of bytes to be copied.
+ * @return A pointer to the destination address.
+ */
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;

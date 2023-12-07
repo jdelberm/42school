@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:18:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 11:43:34 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:25:06 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 #include <string.h>
 
 // FIXME: arreglame cabron
+/**
+ * Searches for the last occurrence of a character in a string.
+ *
+ * @param s The string to search in.
+ * @param c The character to search for.
+ * @return A pointer to the last occurrence of the character in the string,
+ *         or NULL if the character is not found.
+ */
 char	*ft_strrchr(const char *s, int c)
 {
 	char			*found;

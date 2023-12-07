@@ -6,12 +6,20 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:15:03 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:33:45 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:16:57 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Fills a block of memory with a specified value.
+ *
+ * @param s     Pointer to the memory block to be filled.
+ * @param c     Value to be set.
+ * @param n     Number of bytes to be filled.
+ * @return      Pointer to the memory block.
+ */
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ustr;

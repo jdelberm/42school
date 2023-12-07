@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:07 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:13:52 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include "libft.h"
 
+/**
+ * Sets the first 'n' bytes of the memory pointed to by 's' to zero.
+ *
+ * @param s - Pointer to the memory to be zeroed.
+ * @param n - Number of bytes to be zeroed.
+ */
 void	ft_bzero(void *s, size_t n)
 {
 	char	*str;

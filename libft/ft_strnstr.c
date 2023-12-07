@@ -6,12 +6,22 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:24:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:29:29 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:21:55 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Searches for the first occurrence of the substring 'to_find' in the string 
+ * 'str', but only considers the first 'len' characters of 'str'.
+ *
+ * @param str The string to search within.
+ * @param to_find The substring to find.
+ * @param len The maximum number of characters to consider in 'str'.
+ * @return A pointer to the first occurrence of 'to_find' in 'str', or NULL 
+ * if 'to_find' is not found.
+ */
 char	*ft_strnstr(char *str, char *to_find, size_t len)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:21:17 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/05 11:30:50 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:16:31 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #include "libft.h"
 #include <signal.h>
 
+/**
+ * Copies a block of memory from a source address to a destination address.
+ *
+ * @param dest Pointer to dest address.
+ * @param src Pointer to src address.
+ * @param n The number of bytes to be copied.
+ * @return A pointer to the destination address.
+ */
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;

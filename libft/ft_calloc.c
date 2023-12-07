@@ -6,13 +6,20 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:40:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:31:20 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:32:13 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // TODO: hacer el free de los malloc cuando (!ptr)
+/**
+ * Allocates memory for an array of elements and initializes them to 0.
+ *
+ * @param nmemb The number of elements to allocate memory for.
+ * @param size The size of each element.
+ * @return A pointer to the allocated memory, or NULL if the allocation fails.
+ */
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*ptr;

@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:39:02 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/06 01:33:42 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:21:22 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,14 @@ int	ft_find_end(char const *s1, char const *set)
 	return (end);
 }
 
+/**
+ * Trims leading and trailing characters from a string based on a 
+ * given set of characters.
+ *
+ * @param s1 The string to be trimmed.
+ * @param set The set of characters to be trimmed from the string.
+ * @return The trimmed string.
+ */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;

@@ -6,12 +6,21 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:08:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:17 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:14:04 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Checks if the given character is alphanumeric.
+ *
+ * This function checks if the character is either an uppercase letter,
+ * a lowercase letter, or a digit.
+ *
+ * @param c The character to be checked.
+ * @return 1 if the character is alphanumeric, 0 otherwise.
+ */
 int	ft_isalnum(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || (c >= 'a'

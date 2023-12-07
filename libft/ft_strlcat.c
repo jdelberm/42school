@@ -6,13 +6,24 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:44:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/04 01:18:42 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:24:20 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //TODO: understand the code
 #include "libft.h"
 
+/**
+ * Concatenates the string pointed to by src to the end of the string pointed
+ *  to by dst.
+ * The total length of the resulting string is limited to size-1 characters.
+ * The resulting string is always null-terminated.
+ *
+ * @param dst   The destination string.
+ * @param src   The source string.
+ * @param size  The size of the destination buffer.
+ * @return      The total length of the resulting string.
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;

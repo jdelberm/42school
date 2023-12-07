@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:28:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/03 23:52:18 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:25:31 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * @brief Compares two strings up to a specified number of characters.
+ *
+ * This function compares the first `n` characters of the strings `s1` and `s2`.
+ * The comparison is done using unsigned characters, so the result is always
+ * the difference between the ASCII values of the characters being compared.
+ *
+ * @param s1 The first string to compare.
+ * @param s2 The second string to compare.
+ * @param n The maximum number of characters to compare.
+ * @return An integer greater than, equal to, or less than 0, depending on
+ *  whether `s1` is greater than, equal to, or less than `s2`.
+ */
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*us1;
