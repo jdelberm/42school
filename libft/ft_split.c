@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 10:29:13 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:55:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,24 @@
 
 // TODO: revisar las llamadas a free donde no se permita la función
 
+char	*ft_get_word(char *str, char delim, size_t start, size_t len)
+{
+	char	*substr;
+	char	*trimmed;
+
+	substr = ft_substr(str, start, len);
+	if (!substr)
+		return (0);
+	trimmed = ft_strtrim(substr, &delim);
+	free(substr);
+	return (trimmed);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**splits;
 	char	*str;
-	char	*substr;
-	char	*trimmed;
+	char	*word;
 	size_t	i;
 	size_t	j;
 	size_t	k;
@@ -55,7 +67,10 @@ char	**ft_split(char const *s, char c)
 	}
 	splits = (char **)ft_calloc(count + 1, sizeof(char *));
 	if (!splits)
+	{
+		free(str);
 		return (0);
+	}
 	i = 0;
 	j = 0;
 	k = 0;
@@ -63,16 +78,14 @@ char	**ft_split(char const *s, char c)
 	{
 		if (str[i] == c)
 		{
-			substr = ft_substr(str, j, i - j);
-			if (!substr)
+			word = ft_get_word(str, c, j, i - j);
+			if (!word)
+			{
+				free(str);
 				return (0);
-			trimmed = ft_strtrim(substr, &c);
-			free(substr);
-			if (!trimmed)
-				return (0);
-			splits[k] = ft_strdup(trimmed);
-			free(trimmed);
-			k++;
+			}
+			splits[k++] = word;
+			// free(word);
 			j = i;
 			while (str[i] == c)
 				i++;
@@ -80,15 +93,14 @@ char	**ft_split(char const *s, char c)
 		i++;
 		if (!str[i])
 		{
-			substr = ft_substr(str, j, i - j);
-			if (!substr)
+			word = ft_get_word(str, c, j, i - j);
+			if (!word)
+			{
+				free(str);
 				return (0);
-			trimmed = ft_strtrim(substr, &c);
-			free(substr);
-			if (!trimmed)
-				return (0);
-			splits[k] = ft_strdup(trimmed);
-			free(trimmed);
+			}
+			splits[k] = word;
+			// free(word);
 		}
 	}
 	free(str);
