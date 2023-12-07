@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 10:05:13 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:29:13 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ char	**ft_split(char const *s, char c)
 {
 	char	**splits;
 	char	*str;
+	char	*substr;
+	char	*trimmed;
 	size_t	i;
 	size_t	j;
 	size_t	k;
 	size_t	count;
 
 	str = ft_strtrim(s, &c);
+	if (!str)
+		return (0);
 	i = 0;
 	if (!*str)
 		count = 0;
@@ -59,9 +63,15 @@ char	**ft_split(char const *s, char c)
 	{
 		if (str[i] == c)
 		{
-			splits[k] = ft_strtrim(ft_substr(str, j, i - j), &c);
-			if (!splits[k])
+			substr = ft_substr(str, j, i - j);
+			if (!substr)
 				return (0);
+			trimmed = ft_strtrim(substr, &c);
+			free(substr);
+			if (!trimmed)
+				return (0);
+			splits[k] = ft_strdup(trimmed);
+			free(trimmed);
 			k++;
 			j = i;
 			while (str[i] == c)
@@ -70,22 +80,29 @@ char	**ft_split(char const *s, char c)
 		i++;
 		if (!str[i])
 		{
-			splits[k] = ft_strtrim(ft_substr(str, j, i - j), &c);
-			if (!splits[k])
+			substr = ft_substr(str, j, i - j);
+			if (!substr)
 				return (0);
+			trimmed = ft_strtrim(substr, &c);
+			free(substr);
+			if (!trimmed)
+				return (0);
+			splits[k] = ft_strdup(trimmed);
+			free(trimmed);
 		}
 	}
+	free(str);
 	return (splits);
 }
 /*
 int	main(void)
 {
 	char *s = "      split       this for   me  !       ";
-	size_t i = 0;
-	char **result = ft_split("", ' ');
-	while (result[i])
-	{
-		//printf("\nresult(%li)  => \"%s\"", i, result[i]);
-		i++;
-	}
+
+	char **result = ft_split(s, ' ');
+	if (!result)
+		printf("TEST_SUCCESS");
+	else
+		printf("TEST_FAILED");
+	printf("\n");
 }*/
