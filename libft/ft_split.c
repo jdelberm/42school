@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/06 20:14:54 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:05:13 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 //			sum the index
 
 // TODO: revisar las llamadas a free donde no se permita la función
+
 char	**ft_split(char const *s, char c)
 {
 	char	**splits;
@@ -34,19 +35,21 @@ char	**ft_split(char const *s, char c)
 
 	str = ft_strtrim(s, &c);
 	i = 0;
-	count = 0;
-	while (str[i])
+	if (!*str)
+		count = 0;
+	else
 	{
-		if (str[i] == c || i == ft_strlen(str) - 1)
-			count++;
-		while (str[i] == c)
+		count = 1;
+		while (str[i])
+		{
+			if (str[i] == c)
+				count++;
+			while (str[i] == c)
+				i++;
 			i++;
-		i++;
+		}
 	}
-	// printf("\nhas null? %i", !str[i]);
-	if (!str[i])
-		count++;
-	splits = (char **)ft_calloc(count, sizeof(char *));
+	splits = (char **)ft_calloc(count + 1, sizeof(char *));
 	if (!splits)
 		return (0);
 	i = 0;
@@ -56,8 +59,10 @@ char	**ft_split(char const *s, char c)
 	{
 		if (str[i] == c)
 		{
-			// printf("\narray modified 1");
-			splits[k++] = ft_strtrim(ft_substr(str, j, i - j), &c);
+			splits[k] = ft_strtrim(ft_substr(str, j, i - j), &c);
+			if (!splits[k])
+				return (0);
+			k++;
 			j = i;
 			while (str[i] == c)
 				i++;
@@ -65,21 +70,22 @@ char	**ft_split(char const *s, char c)
 		i++;
 		if (!str[i])
 		{
-			// printf("\narray modified 2");
-			splits[k++] = ft_strtrim(ft_substr(str, j, i - j), &c);
+			splits[k] = ft_strtrim(ft_substr(str, j, i - j), &c);
+			if (!splits[k])
+				return (0);
 		}
 	}
 	return (splits);
 }
-
+/*
 int	main(void)
 {
 	char *s = "      split       this for   me  !       ";
-
-	char **result = ft_split(s, ' ');
-	while (*result)
+	size_t i = 0;
+	char **result = ft_split("", ' ');
+	while (result[i])
 	{
-		printf("\nresult  => \"%s\"", *result);
-		result++;
+		//printf("\nresult(%li)  => \"%s\"", i, result[i]);
+		i++;
 	}
-}
+}*/
