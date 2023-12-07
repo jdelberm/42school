@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 11:07:01 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 21:17:24 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@
 
 // TODO: revisar las llamadas a free donde no se permita la función
 
+char *ft_trim_char(const char *str, char delim)
+{
+	char *str_delim;
+	char *trimmed;
+
+	str_delim = ft_calloc(2, sizeof(char));
+	if(!str_delim)
+		return (0);
+	str_delim[0] = delim;
+	trimmed = ft_strtrim(str, str_delim);
+	free(str_delim);
+	return (trimmed);
+}
+
 char	*ft_get_word(char *str, char delim, size_t start, size_t len)
 {
 	char	*substr;
@@ -32,7 +46,7 @@ char	*ft_get_word(char *str, char delim, size_t start, size_t len)
 	substr = ft_substr(str, start, len);
 	if (!substr)
 		return (0);
-	trimmed = ft_strtrim(substr, &delim);
+	trimmed = ft_trim_char(substr, delim);
 	free(substr);
 	if (!trimmed)
 		return (0);
@@ -55,7 +69,7 @@ char	**ft_split(char const *s, char c)
 	size_t	k;
 	size_t	count;
 
-	str = ft_strtrim(s, &c);
+	str = ft_trim_char(s, c);
 	if (!str)
 		return (0);
 	i = 0;
