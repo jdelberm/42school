@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/08 00:58:31 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:38:16 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,13 @@ char	**ft_split(char const *s, char c)
 	count = ft_count_splitters(str, c);
 	splits = (char **)ft_calloc(count + 1, sizeof(char *));
 	if (!splits)
-	{
-		free(str);
-		return (0);
-	}
+		return (ft_free(str, 0, 0));
 	i = 0;
 	j = 0;
 	k = 0;
 	while (str[i])
 	{
-		if (str[i] == c && str[i+1] != c)
+		if (str[i] == c && str[i + 1] != c)
 		{
 			splits[k] = ft_get_word(str, c, j, i - j);
 			if (!splits[k])
