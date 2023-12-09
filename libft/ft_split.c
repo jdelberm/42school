@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/08 11:44:16 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:27:26 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,21 @@ char	*ft_get_word(char const *s, char delim, size_t start, size_t len)
 	return (trimmed);
 }
 
-size_t	ft_count_splitters(char *str, char c)
+size_t	ft_count_splitters(const char *s, char c)
 {
 	size_t	count;
-	size_t	i;
 
-	if (!str)
+	if (!*s)
 		return (0);
-	i = 0;
-	if (!*str)
-		count = 0;
-	else
+	count = 0;
+	while (*s)
 	{
-		count = 1;
-		while (str[i])
-		{
-			if (str[i] == c)
-				count++;
-			while (str[i] == c)
-				i++;
-			i++;
-		}
+		while (*s == c)
+			s++;
+		if (*s)
+			count++;
+		while (*s != c && *s)
+			s++;
 	}
 	return (count);
 }
@@ -92,42 +86,30 @@ char	**ft_free(char *str, char **splits, size_t len)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**splits;
-	char	*str;
-	size_t	i;
-	size_t	j;
-	size_t	k;
-	size_t	count;
+	char	**lst;
+	size_t	word_len;
+	int		i;
 
-	str = ft_trim_char(s, c);
-	if (!str)
+	lst = (char **)malloc((ft_count_splitters(s, c) + 1) * sizeof(char *));
+	if (!s || !lst)
 		return (0);
-	count = ft_count_splitters(str, c);
-	splits = (char **)ft_calloc(count + 1, sizeof(char *));
-	if (!splits)
-		return (ft_free(str, 0, 0));
 	i = 0;
-	j = 0;
-	k = 0;
-	while (str[i])
+	while (*s)
 	{
-		if (str[i] == c && str[i + 1] != c)
+		while (*s == c && *s)
+			s++;
+		if (*s)
 		{
-			splits[k++] = ft_get_word(str, c, j, i - j);
-			if (!splits[k-1])
-				return (ft_free(str, splits, count + 1));
-			j = i;
-		}
-		i++;
-		if (!str[i])
-		{
-			splits[k] = ft_get_word(str, c, j, i - j);
-			if (!splits[k])
-				return (ft_free(str, splits, count + 1));
+			if (!ft_strchr(s, c))
+				word_len = ft_strlen(s);
+			else
+				word_len = ft_strchr(s, c) - s;
+			lst[i++] = ft_substr(s, 0, word_len);
+			s += word_len;
 		}
 	}
-	free(str);
-	return (splits);
+	lst[i] = NULL;
+	return (lst);
 }
 /*
 int	main(void)
