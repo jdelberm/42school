@@ -2,3 +2,4 @@ libft/a.out
 libft/test.c
 libft/*.json
 libft/*.o
+.DS_Store
