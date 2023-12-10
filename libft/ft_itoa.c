@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:12:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/10 10:54:32 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:32:24 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_nbrlen(int n)
 {
-	size_t	nlen;
-	unsigned int cast;
+	size_t			nlen;
+	unsigned int	cast;
 
 	nlen = 1;
 	cast = n;
@@ -34,9 +34,9 @@ int	ft_nbrlen(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*s;
-	size_t	nlen;
-	unsigned int cast;
+	char			*s;
+	size_t			nlen;
+	unsigned int	cast;
 
 	cast = n;
 	nlen = ft_nbrlen(cast);
