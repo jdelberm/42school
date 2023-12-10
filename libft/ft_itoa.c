@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:12:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/10 10:47:13 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:54:32 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,31 @@
 int	ft_nbrlen(int n)
 {
 	size_t	nlen;
+	unsigned int cast;
 
 	nlen = 1;
+	cast = n;
 	if (n < 0)
 	{
 		nlen++;
-		n = -n;
+		cast *= -1;
 	}
-	while (n > 9)
+	while (cast > 9)
 	{
-		n /= 10;
+		cast /= 10;
 		nlen++;
 	}
 	return (nlen);
 }
 
-/*
-// Find the string size
-//	Get the natural part of the number
-//	Get the decimal part of the number
-// Allocate the string
-*/
-/*
-// While the number is greater than 9
-//	Divide it by 10
-//	If lower than 10
-//		Convert to character and add to the string
-//	Else if higher or equal than 10
-//		Divide again
-//	Get the mod of the operation
-// Return the string
-*/
 char	*ft_itoa(int n)
 {
 	char	*s;
 	size_t	nlen;
+	unsigned int cast;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	nlen = ft_nbrlen(n);
+	cast = n;
+	nlen = ft_nbrlen(cast);
 	s = ft_calloc(nlen + 1, sizeof(char));
 	if (!s)
 		return (0);
@@ -61,12 +47,12 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		s[0] = '-';
-		n = -n;
+		cast *= -1;
 	}
-	while (n > 0)
+	while (cast > 0)
 	{
-		s[--nlen] = (n % 10) + 48;
-		n /= 10;
+		s[--nlen] = (cast % 10) + 48;
+		cast /= 10;
 	}
 	return (s);
 }
