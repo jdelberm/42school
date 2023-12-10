@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:12:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/10 10:37:11 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:41:41 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_nbrlen(int n)
 	}
 	return (nlen);
 }
+
 /*
 // Find the string size
 //	Get the natural part of the number
@@ -52,7 +53,9 @@ char	*ft_itoa(int n)
 
 	nlen = ft_nbrlen(n);
 	if (n == -2147483648)
-		return ("-2147483648");
+		return (ft_strdup("-2147483648"));
+	if (!n)
+		return (ft_strdup("0"));
 	s = ft_calloc(nlen + 1, sizeof(char));
 	if (!s)
 		return (0);
@@ -73,6 +76,7 @@ int	main(void)
 {
 	int	n;
 
-	n = 2147483647;
+	n = -2147483648;
 	printf("Itoa of %i => \"%s\"\n", n, ft_itoa(n));
-}*/
+}
+*/
