@@ -40,12 +40,14 @@ bonus: $(BNAME)
 #Removes the .o files
 clean:
 	rm -f $(OFILES)
+	rm -f $(BOFILES)
 
 #Launchs clean command and removes the library
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BNAME)
 
 #Rebuild action
-re: fclean $(NAME)
+re: fclean $(NAME) $(BNAME)
 
 .PHONY: all clean fclean re
