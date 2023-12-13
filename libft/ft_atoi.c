@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:28:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:22:18 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:25:01 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,12 @@ int	ft_atoi(const char *ptr)
 
 	num = 0;
 	sign = 1;
-	while (*ptr == ' ' || *ptr == '\f' || *ptr == '\n' || *ptr == '\r'
-		|| *ptr == '\t' || *ptr == '\v')
+	while ((*ptr >= 9 && *ptr <= 13) || *ptr == 32)
 		ptr++;
 	if (*ptr == '-' || *ptr == '+')
 	{
 		if (*ptr == '-')
-		{
 			sign *= -1;
-		}
 		ptr++;
 	}
 	while (*ptr >= '0' && *ptr <= '9')
