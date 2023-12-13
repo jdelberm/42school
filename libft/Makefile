@@ -17,20 +17,25 @@ ft_lstnew_bonus.c ft_lstsize_bonus.c
 OFILES = $(CFILES:%.c=%.o)
 
 #All the bonus object files prior to the linking
-BOFILES = $(CFILES:%.c=%.o)
+BOFILES = $(BCFILES:%.c=%.o)
 
 #Library name
 NAME = libft.a
+
+#Bonus library name
+BNAME = libft_bonus.a
 
 #Performs the linking and stores the result in the library name
 $(NAME): $(OFILES)
 	ar rcs $(NAME) $(OFILES)
 
+$(BNAME): $(BOFILES)
+	ar rcs $(BNAME) $(BOFILES)
+
 #Check if the library is already created and stops if so
 all: $(NAME)
 
-bonus: $(NAME)
-	ar rcs $(NAME) $(BOFILES)
+bonus: $(BNAME)
 
 #Removes the .o files
 clean:
