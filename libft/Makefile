@@ -22,20 +22,15 @@ BOFILES = $(BCFILES:%.c=%.o)
 #Library name
 NAME = libft.a
 
-#Bonus library name
-BNAME = libft_bonus.a
-
 #Performs the linking and stores the result in the library name
 $(NAME): $(OFILES)
 	ar rcs $(NAME) $(OFILES)
 
-$(BNAME): $(BOFILES)
-	ar rcs $(BNAME) $(BOFILES)
-
 #Check if the library is already created and stops if so
 all: $(NAME)
 
-bonus: $(BNAME)
+bonus: $(BOFILES)
+	ar rcs $(NAME) $(BOFILES)
 
 #Removes the .o files
 clean:
@@ -45,9 +40,8 @@ clean:
 #Launchs clean command and removes the library
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(BNAME)
 
 #Rebuild action
-re: fclean $(NAME) $(BNAME)
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re

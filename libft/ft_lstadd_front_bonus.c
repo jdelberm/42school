@@ -6,11 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 20:30:53 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/13 20:14:27 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:34:46 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 /**
  * Update lst with the new list, placing it as the first one.
 */
