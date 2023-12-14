@@ -6,13 +6,9 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:21:17 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:16:31 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:42:23 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO: comment main after testing
-// TODO: review code in pythontutor
-// TODO: review norminette
 
 #include "libft.h"
 #include <signal.h>

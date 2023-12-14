@@ -6,23 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/09 15:27:26 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:42:33 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
-
-// loop the string while not null
-//	if a splitter is found
-//		if it's the first one
-//			make substring from i=0
-//		if it isn't the first
-//			make substring from last splitter
-//		check if there are more splitters next to it
-//			sum the index
-
-// TODO: revisar las llamadas a free donde no se permita la función
 
 char	*ft_trim_char(const char *str, char delim)
 {

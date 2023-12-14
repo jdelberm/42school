@@ -6,12 +6,9 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:13:52 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:42:11 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO: review in python tutor if the amounts of NULL's added corresponds to N
-// TODO: comment main after testing
 
 #include "libft.h"
 

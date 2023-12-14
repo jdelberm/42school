@@ -6,14 +6,13 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:18:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:25:06 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:42:56 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-// FIXME: arreglame cabron
 /**
  * Searches for the last occurrence of a character in a string.
  *
