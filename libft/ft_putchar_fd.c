@@ -6,12 +6,18 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:06:17 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/10 19:09:49 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:47:54 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Writes a character to the specified file descriptor.
+ *
+ * @param c The character to be written.
+ * @param fd The file descriptor to write to.
+ */
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);

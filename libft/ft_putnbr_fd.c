@@ -6,12 +6,21 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:18:34 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/13 20:26:43 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:53:08 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Prints an integer to the specified file descriptor.
+ *
+ * This function takes an integer as input and prints it to the specified file
+ * descriptor.
+ *
+ * @param n The integer to be printed.
+ * @param fd The file descriptor to which the integer will be printed.
+ */
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;

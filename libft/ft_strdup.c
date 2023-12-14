@@ -6,21 +6,17 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:54:46 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:22:37 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:56:11 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO: check in pythontutor
-// TODO: comment main
-// TODO: verify norminette
 
 #include "libft.h"
 
 /**
  * @brief   Duplicates a string.
  *
- * This function allocates memory for a new string and copies the contents of the
- * input string into it. The new string is terminated with a null character.
+ * This function allocates memory for a new string and copies the contents of
+ * the input string into it. The new string is terminated with a null character.
  *
  * @param   s   The string to be duplicated.
  * @return  A pointer to the newly allocated string, or NULL if the allocation

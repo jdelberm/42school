@@ -6,12 +6,18 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:12:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/10 19:32:24 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/14 07:45:21 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Calculates the number of digits in an integer.
+ *
+ * @param n The integer for which to calculate the number of digits.
+ * @return The number of digits in the integer.
+ */
 int	ft_nbrlen(int n)
 {
 	size_t			nlen;
@@ -32,6 +38,16 @@ int	ft_nbrlen(int n)
 	return (nlen);
 }
 
+/**
+ * @brief Converts an integer to a string.
+ *
+ * This function takes an integer as input and converts it into a string
+ * representation.
+ * The resulting string is allocated and must be freed by the caller.
+ *
+ * @param n The integer to be converted.
+ * @return The string representation of the integer.
+ */
 char	*ft_itoa(int n)
 {
 	char			*s;
