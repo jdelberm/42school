@@ -4,3 +4,4 @@ libft/*.json
 libft/*.o
 .DS_Store
 libft/libft.a
+libft/.vscode/c_cpp_properties.json
