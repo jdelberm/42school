@@ -6,13 +6,13 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:39:02 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:21:22 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:59:38 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_find_start(char const *s1, char const *set)
+static int	ft_find_start(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	start;
@@ -32,7 +32,7 @@ int	ft_find_start(char const *s1, char const *set)
 	return (start);
 }
 
-int	ft_find_end(char const *s1, char const *set)
+static int	ft_find_end(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	end;

@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:50:02 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:59:37 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param delim The delimiter character to be removed.
  * @return A pointer to the trimmed string.
  */
-char	*ft_trim_char(const char *str, char delim)
+static char	*ft_trim_char(const char *str, char delim)
 {
 	char	*str_delim;
 	char	*trimmed;
@@ -54,7 +54,7 @@ char	*ft_trim_char(const char *str, char delim)
  * @param len The length of the word to retrieve.
  * @return A pointer to the retrieved word, or NULL if an error occurred.
  */
-char	*ft_get_word(char const *s, char delim, size_t start, size_t len)
+static char	*ft_get_word(char const *s, char delim, size_t start, size_t len)
 {
 	char	*substr;
 	char	*trimmed;
@@ -76,7 +76,7 @@ char	*ft_get_word(char const *s, char delim, size_t start, size_t len)
  * @param c The splitter character.
  * @return The number of splitters in the string.
  */
-size_t	ft_count_splitters(const char *s, char c)
+static size_t	ft_count_splitters(const char *s, char c)
 {
 	size_t	count;
 
@@ -106,7 +106,7 @@ size_t	ft_count_splitters(const char *s, char c)
  * @param splits The array of strings to be freed.
  * @param len The number of elements in the array.
  */
-char	**ft_free(char *str, char **splits, size_t len)
+static char	**ft_free(char *str, char **splits, size_t len)
 {
 	if (str)
 		free(str);

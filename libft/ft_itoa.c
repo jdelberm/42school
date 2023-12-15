@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 08:12:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:45:21 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:59:37 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param n The integer for which to calculate the number of digits.
  * @return The number of digits in the integer.
  */
-int	ft_nbrlen(int n)
+static int	ft_nbrlen(int n)
 {
 	size_t			nlen;
 	unsigned int	cast;
