@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:45:15 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/07 06:14:34 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:56:55 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
  */
 int	ft_isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (2048);
-	return (0);
+	return (c >= 48 && c <= 57);
 }
 /*
 int	main(void)

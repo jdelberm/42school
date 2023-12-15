@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:50:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:53:25 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:57:05 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
  */
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-		return (16384);
-	return (0);
+	return (c >= 32 && c <= 126);
 }
 /*
 int	main(void)
