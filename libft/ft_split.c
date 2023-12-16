@@ -6,13 +6,14 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/16 09:09:39 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 12:09:30 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
+
 /**
  * Counts the number of splitters in a string.
  *
@@ -52,7 +53,7 @@ char	**ft_split(char const *s, char c)
 	size_t	word_len;
 	int		i;
 
-	lst = (char **)malloc((ft_count_splitters(s, c) + 1) * sizeof(char *));
+	lst = (char **)ft_calloc((ft_count_splitters(s, c) + 1), sizeof(char *));
 	if (!s || !lst)
 		return (0);
 	i = 0;
@@ -60,17 +61,15 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c && *s)
 			s++;
-		if (*s)
+		word_len = 0;
+		while (*s != c && *s)
 		{
-			if (!ft_strchr(s, c))
-				word_len = ft_strlen(s);
-			else
-				word_len = ft_strchr(s, c) - s;
-			lst[i++] = ft_substr(s, 0, word_len);
-			s += word_len;
+			word_len++;
+			s++;
 		}
+		if (word_len)
+			lst[i++] = ft_substr(s - word_len, 0, word_len);
 	}
-	lst[i] = NULL;
 	return (lst);
 }
 /*
