@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:57:44 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:35:10 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 11:19:59 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,21 @@
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
+	t_list	*head;
 	t_list	*new_elem;
 
-	new_list = NULL;
+	head = NULL;
 	while (lst)
 	{
-		new_elem = ft_lstnew(f(lst->content));
+		new_elem = ft_lstnew(0);
 		if (!new_elem)
 		{
-			ft_lstclear(&new_list, del);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new_list, new_elem);
+		new_elem->content = f(lst->content);
+		ft_lstadd_back(&head, new_elem);
 		lst = lst->next;
 	}
-	return (new_list);
+	return (head);
 }
