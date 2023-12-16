@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/16 12:32:49 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 12:53:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,21 @@ static void	ft_free_split(char **split)
 	free(split);
 }
 
+static size_t	ft_wordlen(const char **s, char c)
+{
+	size_t	word_len;
+
+	while (**s == c && *s)
+		(*s)++;
+	word_len = 0;
+	while (**s != c && **s)
+	{
+		word_len++;
+		(*s)++;
+	}
+	return (word_len);
+}
+
 /**
  * Splits a string into an array of substrings based on a delimiter character.
  *
@@ -69,14 +84,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*s)
 	{
-		while (*s == c && *s)
-			s++;
-		word_len = 0;
-		while (*s != c && *s)
-		{
-			word_len++;
-			s++;
-		}
+		word_len = ft_wordlen(&s, c);
 		if (word_len)
 		{
 			lst[i++] = ft_substr(s - word_len, 0, word_len);
