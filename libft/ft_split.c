@@ -6,13 +6,13 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/16 08:49:00 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:09:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
-
+#include <stdlib.h>
 /**
  * Counts the number of splitters in a string.
  *

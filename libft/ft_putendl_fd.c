@@ -6,11 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:15:52 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:48:04 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:11:34 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 /**
  * Writes the string 's' followed by a newline character ('\n') to the

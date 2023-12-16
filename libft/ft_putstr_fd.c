@@ -6,11 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:11:45 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:48:33 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:12:06 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 /**
  * Writes a string to the specified file descriptor.

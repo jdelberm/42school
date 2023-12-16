@@ -6,11 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:22:10 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:53:00 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:14:36 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 /**
  * @brief Deletes a single node from a linked list.

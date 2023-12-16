@@ -6,11 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:02:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:42:11 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:06:15 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /**
  * Sets the first 'n' bytes of the memory pointed to by 's' to zero.

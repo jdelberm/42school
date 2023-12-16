@@ -6,11 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:25:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:46:10 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:12:32 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 /**
  * @brief Clears a linked list by deleting all nodes and freeing their memory.

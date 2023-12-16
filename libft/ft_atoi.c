@@ -6,11 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:28:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/13 20:25:01 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:03:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 /**
  * @brief Converts a string to an integer.

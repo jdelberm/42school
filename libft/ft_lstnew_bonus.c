@@ -6,10 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 20:02:01 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/14 07:53:35 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:12:58 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 /**

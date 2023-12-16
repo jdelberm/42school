@@ -6,11 +6,9 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:08:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/15 12:55:37 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:13:19 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /**
  * @brief Checks if the given character is alphanumeric.
