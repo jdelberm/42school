@@ -5,4 +5,4 @@ libft/*.o
 .DS_Store
 libft/libft.a
 libft/.vscode/c_cpp_properties.json
-.vscode/settings.json
+.vscode
