@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 08:25:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/16 09:12:32 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 10:46:16 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		while (tmp)
 		{
-			del(tmp->content);
 			aux = tmp->next;
-			free(tmp);
+			ft_lstdelone(tmp, del);
 			tmp = aux;
 		}
 		*lst = NULL;
