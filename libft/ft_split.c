@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 10:07:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/16 12:09:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 12:32:49 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ static size_t	ft_count_splitters(const char *s, char c)
 	return (count);
 }
 
+static void	ft_free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
+}
+
 /**
  * Splits a string into an array of substrings based on a delimiter character.
  *
@@ -68,7 +78,14 @@ char	**ft_split(char const *s, char c)
 			s++;
 		}
 		if (word_len)
+		{
 			lst[i++] = ft_substr(s - word_len, 0, word_len);
+			if (!lst[i - 1])
+			{
+				ft_free_split(lst);
+				return (0);
+			}
+		}
 	}
 	return (lst);
 }
