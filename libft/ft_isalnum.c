@@ -6,9 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:08:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/16 09:13:19 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/17 20:20:29 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /**
  * @brief Checks if the given character is alphanumeric.
@@ -21,8 +23,7 @@
  */
 int	ft_isalnum(int c)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || (c >= 'a'
-			&& c <= 'z'));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
 /*
 int	main(void)
