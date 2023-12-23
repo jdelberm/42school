@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 20:24:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/15 12:05:45 by judelgad         ###   ########.fr       */
+/*   Created: 2023/12/11 08:22:10 by judelgad          #+#    #+#             */
+/*   Updated: 2023/12/16 09:14:36 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnstr(char *str, char *to_find, size_t len)
+/**
+ * @brief Deletes a single node from a linked list.
+ *
+ * This function deletes the specified node from a linked list. The 'del'
+ * function
+ * is called to free the memory occupied by the content of the node.
+ *
+ * @param lst The node to be deleted.
+ * @param del The function used to delete the content of the node.
+ */
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
-	size_t	tf_size;
-	char	*found;
-
-	tf_size = ft_strlen(to_find);
-	if (!tf_size)
-		return (str);
-	found = 0;
-	i = -1;
-	while (str[++i] && i < len && !found)
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && to_find[j] && i + j < len)
-			j++;
-		if (!to_find[j])
-			found = &str[i];
-	}
-	return (found);
+	del(lst->content);
+	free(lst);
 }

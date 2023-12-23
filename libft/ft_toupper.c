@@ -6,13 +6,26 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:54:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:05:51 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:23:16 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
 
+/**
+ * @brief Converts a lowercase letter to its corresponding uppercase letter.
+ *
+ * This function takes an integer representing a character and checks if it is
+ *  a lowercase letter.
+ * If it is, it converts it to its corresponding uppercase letter by subtracting
+ *  32 from its ASCII value.
+ * If the character is not a lowercase letter, it is returned as is.
+ *
+ * @param c The character to be converted.
+ * @return The uppercase version of the character if it is a lowercase letter,
+ *  otherwise the character itself.
+ */
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')

@@ -6,37 +6,52 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:30:00 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/01 19:51:15 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:19:00 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
+#include <unistd.h>
 
+/**
+ * Copies a substring from the given string starting at the specified index
+ * and with the specified length.
+ *
+ * @param s The string to extract the substring from.
+ * @param start The starting index of the substring.
+ * @param len The length of the substring.
+ * @return The extracted substring, or NULL if memory allocation fails.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*chunk;
-	size_t	i;
-	size_t	j;
 
-	chunk = malloc(len * sizeof(char));
-	if (!chunk)
-		return (0);
-	i = start;
-	j = 0;
-	while (s[i + j] && j < len)
+	if (start == 0 && len == (size_t)-1)
+		return (ft_strdup(s));
+	else if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	else if (len >= ft_strlen(s))
 	{
-		chunk[j] = s[i + j];
-		j++;
+		chunk = ft_calloc(ft_strlen(s) + 1 - start, sizeof(char));
+		if (!chunk)
+			return (0);
 	}
+	else if (start + len >= ft_strlen(s))
+		return (ft_strdup(&s[start]));
+	else
+	{
+		chunk = ft_calloc(len + 1, sizeof(char));
+		if (!chunk)
+			return (0);
+	}
+	ft_strlcpy(chunk, &s[start], len + 1);
 	return (chunk);
 }
-
+/*
 int	main(void)
 {
-	char *str = "Hold my juice and watch this";
-	char *substr;
+	char	str[] = "lorem ipsum dolor sit amet";
+	char	*substr;
 	int start;
 	int len;
 
@@ -44,7 +59,7 @@ int	main(void)
 
 	start = 5;
 	len = 8;
-	substr = ft_substr(str, start, len);
+	substr = ft_substr(str, 0, 10);
 	printf("Substring of %i characters at index %i returns:\n", start, len);
 	printf("\tcustom fn\t=> \"%s\"\n\n", substr);
 
@@ -59,4 +74,4 @@ int	main(void)
 	substr = ft_substr(str, start, len);
 	printf("Substring of %i characters at index %i returns:\n", start, len);
 	printf("\tcustom fn\t=> \"%s\"\n\n", substr);
-}
+}*/

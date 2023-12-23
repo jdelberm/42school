@@ -6,12 +6,25 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:28:30 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:01 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/16 09:03:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
+/**
+ * @brief Converts a string to an integer.
+ *
+ * This function takes a string `ptr` and converts it to an integer.
+ * It skips any leading whitespace characters and then checks for an optional
+ *  sign.
+ * After that, it iterates through the string and converts each digit to its
+ *  corresponding integer value.
+ * The resulting integer is multiplied by the sign and returned.
+ *
+ * @param ptr The string to convert to an integer.
+ * @return The converted integer value.
+ */
 int	ft_atoi(const char *ptr)
 {
 	int	num;
@@ -19,15 +32,12 @@ int	ft_atoi(const char *ptr)
 
 	num = 0;
 	sign = 1;
-	while (*ptr == ' ' || *ptr == '\f' || *ptr == '\n' || *ptr == '\r'
-		|| *ptr == '\t' || *ptr == '\v')
+	while ((*ptr >= 9 && *ptr <= 13) || *ptr == 32)
 		ptr++;
 	if (*ptr == '-' || *ptr == '+')
 	{
 		if (*ptr == '-')
-		{
 			sign *= -1;
-		}
 		ptr++;
 	}
 	while (*ptr >= '0' && *ptr <= '9')

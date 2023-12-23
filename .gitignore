@@ -1,3 +1,8 @@
-*/a.out
-*/test.c
-*/settings.json
+libft/a.out
+libft/test.c
+libft/*.json
+libft/*.o
+.DS_Store
+libft/libft.a
+libft/.vscode/c_cpp_properties.json
+.vscode

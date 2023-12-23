@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 20:24:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/15 12:05:45 by judelgad         ###   ########.fr       */
+/*   Created: 2023/12/10 19:15:52 by judelgad          #+#    #+#             */
+/*   Updated: 2023/12/17 20:29:29 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-char	*ft_strnstr(char *str, char *to_find, size_t len)
+/**
+ * Writes the string 's' followed by a newline character ('\n') to the
+ * file descriptor 'fd'.
+ *
+ * @param s The string to be written.
+ * @param fd The file descriptor to write to.
+ */
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-	size_t	j;
-	size_t	tf_size;
-	char	*found;
-
-	tf_size = ft_strlen(to_find);
-	if (!tf_size)
-		return (str);
-	found = 0;
-	i = -1;
-	while (str[++i] && i < len && !found)
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && to_find[j] && i + j < len)
-			j++;
-		if (!to_find[j])
-			found = &str[i];
-	}
-	return (found);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

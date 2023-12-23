@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 20:24:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/15 12:05:45 by judelgad         ###   ########.fr       */
+/*   Created: 2023/12/10 20:30:53 by judelgad          #+#    #+#             */
+/*   Updated: 2023/12/14 07:45:55 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strnstr(char *str, char *to_find, size_t len)
+/**
+ * Update lst with the new list, placing it as the first one.
+*/
+/**
+ * Adds a new element to the beginning of a linked list.
+ *
+ * @param lst The address of a pointer to the first element of the list.
+ * @param new The element to add to the list.
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-	size_t	j;
-	size_t	tf_size;
-	char	*found;
-
-	tf_size = ft_strlen(to_find);
-	if (!tf_size)
-		return (str);
-	found = 0;
-	i = -1;
-	while (str[++i] && i < len && !found)
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && to_find[j] && i + j < len)
-			j++;
-		if (!to_find[j])
-			found = &str[i];
-	}
-	return (found);
+	new->next = *lst;
+	*lst = new;
 }
