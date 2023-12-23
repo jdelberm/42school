@@ -6,10 +6,14 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:47:39 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/23 17:48:02 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:34:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 int	ft_print_unsigned(int n)
 {
+	write(1, &n, 1);
+	return (1);
 }

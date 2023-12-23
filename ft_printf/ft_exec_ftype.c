@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/23 18:18:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:31:17 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_exec_ftype(char type, va_list ptr, unsigned int count)
 {
 	if (type == 'c')
-		ft_putchar(ptr);
+		count = ft_putchar(ptr);
 	/*
 if (type == 's')
 	ft_putstr(ptr);
