@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:45:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/23 18:18:57 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/23 18:26:51 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printf(char const *str, ...)
 			ft_exec_ftype(*++str, ptr, count);
 		else
 			write(1, &(*str), 1);
-		if (count == -1)
+		if (count == (unsigned int)-1)
 			return (count);
 		str++;
 	}
