@@ -1,8 +1,8 @@
-libft/a.out
-libft/test.c
-libft/*.json
-libft/*.o
+*/a.out
+*/test.c
+*/*.json
+*/*.o
 .DS_Store
-libft/libft.a
-libft/.vscode/c_cpp_properties.json
+*/*.a
+*/.vscode/c_cpp_properties.json
 .vscode
