@@ -11,8 +11,8 @@ The idea is to keep the repository updated with all the projects completed by my
 ### Finished projects
 |Lang| Name | Short description |
 |-|-|-|
-|-|-|-|
+|c| libft | Library with some basic functions that will be reused in future projects |
 ### Projects in progress
 |Lang| Name | Short description |
 |-|-|-|
-|c| libft | Library with some basic functions that will be reused in future projects |
+|c| ft_printf | Custom implementation of function printf with a limited set of datatypes |
