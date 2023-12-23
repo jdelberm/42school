@@ -6,31 +6,33 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:40:36 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:13 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:38:47 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
+#include <stdlib.h>
 
-void    *ft_calloc(size_t nmemb, size_t size)
+/**
+ * Allocates memory for an array of elements and initializes them to 0.
+ *
+ * @param nmemb The number of elements to allocate memory for.
+ * @param size The size of each element.
+ * @return A pointer to the allocated memory, or NULL if the allocation fails.
+ */
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    char    *ptr;
-    size_t    i;
-    ptr = malloc(nmemb * size);
-    if(!ptr)
-        return 0;
-    if (nmemb == 0 || size == 0)
-    {
-        ptr = malloc(1);
-        if(!ptr)
-          return 0;
-        *ptr = 0;
-        return (ptr);
-    }
-    i = 0;
-    while(i < size)
-        ptr[i++] = 0; 
-    return (ptr);
+	char	*ptr;
+
+	ptr = (void *)malloc(nmemb * size);
+	if (!ptr)
+	{
+		free(ptr);
+		return (0);
+	}
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
 /*
 int	main(void)
