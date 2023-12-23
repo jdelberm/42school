@@ -6,13 +6,24 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:04:49 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:05:41 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:22:56 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
 
+/**
+ * Converts an uppercase letter to lowercase.
+ *
+ * The ft_tolower() function converts the character 'c' to lowercase if it is
+ *  an uppercase letter.
+ * If 'c' is not an uppercase letter, it remains unchanged.
+ *
+ * @param c The character to be converted.
+ * @return The lowercase equivalent of 'c' if it is an uppercase letter,
+ *  otherwise 'c' remains unchanged.
+ */
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

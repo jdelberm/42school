@@ -6,12 +6,22 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:34:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:39 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:23:35 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Searches for the first occurrence of a byte in a block of memory.
+ *
+ * @param s     Pointer to the block of memory to search.
+ * @param c     Byte to be located.
+ * @param n     Number of bytes to search.
+ * @return      Pointer to the first occurrence of the byte in the block of
+ *  memory,
+ *              or NULL if the byte is not found.
+ */
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ustr;

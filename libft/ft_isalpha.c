@@ -6,17 +6,25 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:40:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:21 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:56:27 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Checks if a character is an alphabetic character.
+ *
+ * This function checks if the given character is an alphabetic character,
+ * which includes both uppercase and lowercase letters.
+ *
+ * @param c The character to be checked.
+ * @return Returns 1024 if the character is an alphabetic character, otherwise
+ *  returns 0.
+ */
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1024);
-	return (0);
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
 /*
 int	main(void)

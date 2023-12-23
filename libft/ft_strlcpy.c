@@ -6,12 +6,20 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:22:26 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:29:37 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/07 06:23:45 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Copies a string from source to destination with a specified size limit.
+ *
+ * @param dst The destination string.
+ * @param src The source string.
+ * @param size The size limit of the destination string.
+ * @return The total length of the source string.
+ */
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;

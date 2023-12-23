@@ -6,17 +6,25 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:48:06 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/02 21:31:26 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:56:41 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Checks if the given character is a valid ASCII character.
+ *
+ * This function checks if the given character falls within the range of ASCII
+ *  characters,
+ * which is from 0 to 127 (inclusive).
+ *
+ * @param c The character to be checked.
+ * @return 1 if the character is a valid ASCII character, 0 otherwise.
+ */
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	return (c >= 0 && c <= 127);
 }
 /*
 int	main(void)
