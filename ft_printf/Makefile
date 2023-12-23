@@ -6,7 +6,7 @@
 #    By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 15:51:27 by judelgad          #+#    #+#              #
-#    Updated: 2023/12/23 18:21:11 by judelgad         ###   ########.fr        #
+#    Updated: 2023/12/23 18:22:08 by judelgad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ all: $(NAME)
 
 # Removes the .o files
 clean:
-	rm $(OFILES)
+	rm -f $(OFILES)
 
 # Launchs clean command and removes the library
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 # Recreates the library from zero
 re: fclean all
