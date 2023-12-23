@@ -6,7 +6,7 @@
 #    By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 15:51:27 by judelgad          #+#    #+#              #
-#    Updated: 2023/12/23 18:22:08 by judelgad         ###   ########.fr        #
+#    Updated: 2023/12/23 18:27:15 by judelgad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFILES = ft_putnbr.c ft_putstr.c ft_printf.c
 OFILES = $(CFILES:.c=.o)
 
 # Library name
-NAME = libftprint.a
+NAME = libftprintf.a
 
 # Link the .o files with the library
 $(NAME): $(OFILES)
