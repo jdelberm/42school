@@ -6,7 +6,7 @@
 #    By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 15:51:27 by judelgad          #+#    #+#              #
-#    Updated: 2023/12/23 18:27:15 by judelgad         ###   ########.fr        #
+#    Updated: 2023/12/23 18:30:56 by judelgad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 CFLAGS = -Wall -Wextra -Werror
 
 # Specify the programs to add to the library
-CFILES = ft_putnbr.c ft_putstr.c ft_printf.c
+CFILES = ft_exec_ftype.c ft_itoa.c ft_itohex.c ft_print_pointer.c \
+ft_print_unsigned.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c
 
 # Compile implicitly the .o files from the .c files
 OFILES = $(CFILES:.c=.o)
