@@ -6,12 +6,12 @@
 #    By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 15:51:27 by judelgad          #+#    #+#              #
-#    Updated: 2023/12/23 15:58:21 by judelgad         ###   ########.fr        #
+#    Updated: 2023/12/23 18:21:11 by judelgad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Set the compiler flags by implicit rules
-CFLAGS = "-Wextra -Werror -Wall"
+CFLAGS = -Wall -Wextra -Werror
 
 # Specify the programs to add to the library
 CFILES = ft_putnbr.c ft_putstr.c ft_printf.c
