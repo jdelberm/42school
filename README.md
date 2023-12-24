@@ -4,7 +4,7 @@
     <img src="https://media2.giphy.com/media/JqmupuTVZYaQX5s094/giphy.gif?cid=ecf05e47bavoubwz55dvxk9o4echj2s6izflfkojqlxa3c9x&ep=v1_gifs_search&rid=giphy.gif&ct=g"/>
   </p>
   <p>
-    <img src="https://github.com/jdelberm/42school/assets/25461819/81f8e09d-5763-404a-99a9-13be74034e2a">
+    <a target="_blank" href="https://profile.intra.42.fr/users/judelgad"><img src="https://github.com/jdelberm/42school/assets/25461819/81f8e09d-5763-404a-99a9-13be74034e2a"></a>
   </p>
 </div>
 
