@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itohex.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 17:45:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 02:07:26 by judelgad         ###   ########.fr       */
+/*   Created: 2023/11/29 10:40:57 by judelgad          #+#    #+#             */
+/*   Updated: 2023/12/07 06:18:07 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_itohex(int n)
+/**
+ * Calculates the length of a null-terminated string.
+ *
+ * @param str The string to calculate the length of.
+ * @return The length of the string.
+ */
+size_t	ft_strlen(const char *str)
 {
-	return (n);
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
