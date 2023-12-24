@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 02:00:10 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 02:03:14 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 02:05:57 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putunbr(unsigned int nb)
 	}
 	else
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putunbr(nb / 10);
+		ft_putunbr(nb % 10);
 	}
 }
