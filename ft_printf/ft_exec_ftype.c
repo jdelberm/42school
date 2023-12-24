@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 01:57:09 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 02:01:52 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ if (type == 'p')
 */
 	if (type == 'd' || type == 'i')
 		res = ft_putstr(ft_itoa(va_arg(*ptr, int)));
+
+	if (type == 'u')
+		ft_putunbr(va_arg(*ptr, unsigned int));
 /*
-if (type == 'u')
-	ft_print_unsigned(ptr);
 if (type == 'x')
 	ft_itohex(ptr, 0);
 if (type == 'X')

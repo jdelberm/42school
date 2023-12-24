@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:59:05 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 01:47:25 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 02:03:24 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int		ft_putchar(char c);
 void	ft_putnbr(int nb);
+void	ft_putunbr(unsigned int nb);
 int		ft_putstr(char *str);
 char	*ft_itoa(int n);
 void	ft_print_pointer(void *ptr);
