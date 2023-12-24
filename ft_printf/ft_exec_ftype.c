@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 02:01:52 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 02:31:18 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,17 @@ int	ft_exec_ftype(char type, va_list *ptr, unsigned int *count)
 	if (type == 's')
 		res = ft_putstr(va_arg(*ptr, char *));
 /*
-if (type == 'p')
-	ft_print_pointer(ptr);
+	if (type == 'p')
+		ft_print_pointer(ptr);
 */
 	if (type == 'd' || type == 'i')
 		res = ft_putstr(ft_itoa(va_arg(*ptr, int)));
-
 	if (type == 'u')
 		ft_putunbr(va_arg(*ptr, unsigned int));
-/*
-if (type == 'x')
-	ft_itohex(ptr, 0);
-if (type == 'X')
-	ft_itohex(ptr, 1);
-*/
+	if (type == 'x')
+		ft_itobase(va_arg(*ptr, unsigned int), "0123456789abcdef");
+	if (type == 'X')
+		ft_itobase(va_arg(*ptr, unsigned int), "0123456789ABCDEF");
 	if (type == '%')
 		write(1, "%", 1);
 	*count +=res;
