@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:45:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 01:47:23 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 01:53:23 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int	ft_printf(char const *str, ...)
 
 int	main(void)
 {
-	ft_printf("%cc%sc%c", 'x',"string", 'y');
+	ft_printf("%cc%sc%i%d%c", 'x',"string", 1234,321, 'y');
 }
