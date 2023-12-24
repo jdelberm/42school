@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 02:00:10 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 02:05:57 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:56:01 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	ft_putunbr(unsigned int nb)
 {
 	char	c;
 
-	if (nb < 0)
-	{
-		nb *= -1;
-		write(1, "-", 1);
-	}
 	if (nb < 10)
 	{
 		c = nb + 48;
