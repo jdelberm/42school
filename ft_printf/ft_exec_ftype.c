@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 01:55:42 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 01:57:09 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ if (type == 'x')
 	ft_itohex(ptr, 0);
 if (type == 'X')
 	ft_itohex(ptr, 1);
-if (type == '%')
-	write(1, "%", 1);*/
+*/
+	if (type == '%')
+		write(1, "%", 1);
 	*count +=res;
 	return (res);
 }
