@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:45:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 14:16:44 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:21:15 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(void)
 	ft_printf("this is an unsigned int =>\t%u\n", 4294967295);
 	ft_printf("Number %i to hex =>\t\t%x\n", n, n);
 	ft_printf("Number %i to hex in mayus =>\t%X\n", n, n);
+	ft_printf("Pointer address of a pointer => %p", ptr);
 
 	printf("\nSTANDARD PRINTS\n");
 	printf("Printing the address of a pointer => %p", ptr);
