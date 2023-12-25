@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:45:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 00:12:24 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 00:27:06 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libftprintf.h"
 #include <unistd.h>
 
-int	ft_putnbr_base(int n, const char *base)
+int	ft_putnbr_base(unsigned int n, const char *base)
 {
 	size_t	base_len;
 	char	c;
