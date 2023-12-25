@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itobase.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:45:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 13:59:22 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 00:12:24 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "libftprintf.h"
 #include <unistd.h>
 
-int	ft_itobase(int n, char *base)
+int	ft_putnbr_base(int n, const char *base)
 {
 	size_t	base_len;
 	char	c;
@@ -26,8 +27,8 @@ int	ft_itobase(int n, char *base)
 	}
 	else
 	{
-		ft_itobase(n / base_len, base);
-		ft_itobase(n % base_len, base);
+		ft_putnbr_base(n / base_len, base);
+		ft_putnbr_base(n % base_len, base);
 	}
 	return (1);
 }
