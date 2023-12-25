@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:59:05 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 00:27:36 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 00:47:01 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		ft_puthex(unsigned int n, char *base, int mayus);
 void	ft_putunbr(unsigned int nb);
 int		ft_putstr(char *str);
 int		ft_putptr(void *ptr);
-void	ft_print_pointer(void *ptr);
 int		ft_print_unsigned(unsigned int n);
 int		ft_putnbr_base(unsigned int n, const char *base);
 int		ft_exec_ftype(char type, va_list *ptr, unsigned int *count);
