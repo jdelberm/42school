@@ -6,11 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:10:09 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 10:09:51 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:42:10 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c, int *count)
 {

@@ -6,12 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:45:19 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 10:05:24 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:41:57 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 int	ft_putnbr_base(unsigned int n, const char *base, int *count)

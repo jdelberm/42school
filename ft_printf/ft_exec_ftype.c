@@ -6,11 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 10:31:02 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:41:52 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdarg.h>
 
 int	ft_exec_ftype(char type, va_list *ptr, int *count)
