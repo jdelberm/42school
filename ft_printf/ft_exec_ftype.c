@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 22:58:12 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:28:24 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 
 static int	ft_valid_input(char type, va_list *ptr)
 {
-	int			valid;
-	va_list		list_cp;
-	uintptr_t	input;
+	int		valid;
+	va_list	list_cp;
+	void	*input;
 
 	valid = 1;
 	va_copy(list_cp, *ptr);
 	if (type == 'p')
 	{
-		input = va_arg(list_cp, uintptr_t);
-		valid = input >= 0;
+		input = va_arg(list_cp, void *);
+		valid = input != (void *)0x7fffffffffffffff;
 	}
 	va_end(list_cp);
 	return (valid);
