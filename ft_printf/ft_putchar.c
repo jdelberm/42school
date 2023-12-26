@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:10:09 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 10:43:54 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:49:41 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putchar(char c, int *count)
 {
-	write(1, &c, 1);
-	(*count) += 1;
+	if(write(1, &c, 1))
+		*count += 1;
+	else
+		*count = -1;
 }
