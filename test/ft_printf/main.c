@@ -42,6 +42,12 @@ int	main(void)
 	len = printf("Stad =>\tnon_\"%s\"_non_\"%s\"", "var 1", "var2@ñ");
 	printf("\tlen: %i\n\n", len);
 
+
+	len = ft_printf("Cust =>\t\"%s\"", NULL);
+	printf("\tlen: %i\n", len);
+	//len = printf("Stad =>\t\"%s\"", NULL);
+	//printf("\tlen: %i\n\n", len);
+
 	printf("Unsigned int\n");
 	len = ft_printf("Cust =>\t%u", 4294967295);
 	printf("\tlen: %i\n", len);
