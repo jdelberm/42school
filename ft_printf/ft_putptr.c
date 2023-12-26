@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:44:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 21:33:22 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:44:33 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 #include <unistd.h>
 #include <stdint.h>
 
-int	ft_putptr(void *ptr, int *count)
+void	ft_putptr(unsigned long long ptr, int *count)
 {
 	ft_putstr("0x", count);
-	return (ft_putnbr_base((intptr_t)ptr, "0123456789abcdef", count));
+	if (ptr >= 16)
+	{
+		ft_putnbr_base(ptr / 16, "0123456789abcdef", count);
+		ft_putnbr_base(ptr % 16, "0123456789abcdef", count);
+	}
+	else
+		ft_putnbr_base(ptr, "0123456789abcdef", count);
 }
