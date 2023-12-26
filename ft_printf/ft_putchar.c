@@ -6,14 +6,14 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 18:10:09 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/24 01:42:46 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:09:51 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putchar(char c)
+void	ft_putchar(char c, int *count)
 {
 	write(1, &c, 1);
-	return (1);
+	(*count) += 1;
 }

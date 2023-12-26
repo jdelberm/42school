@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:45:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 09:07:22 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:08:15 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	ft_printf(char const *str, ...)
 {
-	va_list			ptr;
-	unsigned int	count;
+	va_list	ptr;
+	int		count;
 
 	va_start(ptr, str);
 	count = 0;
@@ -29,7 +29,7 @@ int	ft_printf(char const *str, ...)
 				return (-1);
 		}
 		else
-			write(1, &(*str), 1);
+			ft_putchar(*str, &count);
 		str++;
 	}
 	va_end(ptr);
