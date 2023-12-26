@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 12:22:59 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 12:41:06 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static int	ft_valid_input(char type, va_list *ptr)
 		input = va_arg(list_cp, long int);
 		valid = input < 0;
 	}
-	printf("\nIS IT VALID? %i\n", valid);
 	va_end(list_cp);
 	return (valid);
 }
