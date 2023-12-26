@@ -51,8 +51,8 @@ int	main(void)
 	printf("Unsigned int\n");
 	len = ft_printf("Cust =>\t%u", 0);
 	printf("\tlen: %i\n", len);
-	len = printf("Stad =>\t%lu", 0);
-	printf("\tlen: %i\n\n", len);
+	//len = printf("Stad =>\t%lu", 0);
+	//printf("\tlen: %i\n\n", len);
 	len = ft_printf("Cust =>\t%u", 4294967295);
 	printf("\tlen: %i\n", len);
 	len = printf("Stad =>\t%lu", 4294967295);
