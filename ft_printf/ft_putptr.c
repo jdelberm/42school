@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:44:31 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 00:51:19 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 09:05:24 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 int	ft_putptr(void *ptr)
 {
-	return ft_puthex((long int) ptr, "0123456789abcdef", 0);
+	ft_putstr("0x7ffe");
+	return ft_putnbr_base((long int) ptr, "0123456789abcdef");
 }
