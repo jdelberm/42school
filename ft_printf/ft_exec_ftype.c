@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/27 00:28:24 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:44:08 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,14 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static int	ft_valid_input(char type, va_list *ptr)
-{
-	int		valid;
-	va_list	list_cp;
-	void	*input;
-
-	valid = 1;
-	va_copy(list_cp, *ptr);
-	if (type == 'p')
-	{
-		input = va_arg(list_cp, void *);
-		valid = input != (void *)0x7fffffffffffffff;
-	}
-	va_end(list_cp);
-	return (valid);
-}
-
 int	ft_exec_ftype(char type, va_list *ptr, int *count)
 {
-	if (!ft_valid_input(type, ptr))
-		return (0);
 	if (type == 'c')
 		ft_putchar(va_arg(*ptr, int), count);
 	if (type == 's')
 		ft_putstr(va_arg(*ptr, char *), count);
 	if (type == 'p')
-		ft_putptr(va_arg(*ptr, void *), count);
+		ft_putptr(va_arg(*ptr, unsigned long long), count);
 	if (type == 'd' || type == 'i')
 		ft_putnbr_base(va_arg(*ptr, int), "0123456789", count);
 	if (type == 'u')
