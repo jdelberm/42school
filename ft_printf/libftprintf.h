@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:59:05 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 10:05:07 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:31:43 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 
 void	ft_putchar(char c, int *count);
-int		ft_puthex(unsigned int n, char *base, int mayus, int *count);
 void	ft_putstr(char *str, int *count);
 int		ft_putptr(void *ptr, int *count);
 int		ft_print_unsigned(unsigned int n);
