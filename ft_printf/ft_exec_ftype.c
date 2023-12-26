@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 17:34:43 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/27 00:44:08 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/27 00:54:58 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	ft_exec_ftype(char type, va_list *ptr, int *count)
 		ft_putnbr_base(va_arg(*ptr, unsigned int), "0123456789ABCDEF", count);
 	if (type == '%')
 		ft_putchar('%', count);
-	return (1);
+	return (*count != -1);
 }
