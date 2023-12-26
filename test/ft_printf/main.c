@@ -30,6 +30,12 @@ int	main(void)
 	len = printf("Stad =>\t%ia%ib%dc", 123, 456, 789);
 	printf("\tlen: %i\n\n", len);
 
+
+	len = ft_printf("Cust =>\t%ia%ib%dc", -1, -10, -99);
+	printf("\tlen: %i\n", len);
+	len = printf("Stad =>\t%ia%ib%dc", -1, -10, -99);
+	printf("\tlen: %i\n\n", len);
+
 	printf("Strings combination\n");
 	len = ft_printf("Cust =>\tnon_\"%s\"_non_\"%s\"", "var 1", "var2@ñ");
 	printf("\tlen: %i\n", len);
