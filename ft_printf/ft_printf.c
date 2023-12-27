@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:45:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/26 12:02:20 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/27 01:05:51 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ int	ft_printf(char const *str, ...)
 
 	va_start(ptr, str);
 	count = 0;
-	while (*str)
+	while (*str && count != -1)
 	{
 		if (*str == '%')
-		{
-			if (!ft_exec_ftype(*++str, &ptr, &count))
-				return (-1);
-		}
+			ft_exec_ftype(*++str, &ptr, &count);
 		else
 			ft_putchar(*str, &count);
 		str++;
