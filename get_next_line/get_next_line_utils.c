@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/30 01:03:31 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:05:50 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_read_char(int fd, char *c)
 	buffer = malloc(BUFFER_SIZE);
 	if (!buffer)
 		return (0);
-	res = read(fd, buffer, sizeof(buffer));
+	res = read(fd, buffer, 1);
 	if (res == -1 || res == 0)
 	{
 		free(buffer);
