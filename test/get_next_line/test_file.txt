@@ -1,1 +1,2 @@
 hey there, this is a test file.
+The test file has two lines.
