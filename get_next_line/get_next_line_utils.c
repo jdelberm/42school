@@ -6,10 +6,11 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/30 01:01:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:03:31 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -49,10 +50,10 @@ int	ft_read_char(int fd, char *c)
 
 	*c = 0;
 	res = 0;
-	buffer = malloc(1);
+	buffer = malloc(BUFFER_SIZE);
 	if (!buffer)
 		return (0);
-	res = read(fd, buffer, 1);
+	res = read(fd, buffer, sizeof(buffer));
 	if (res == -1 || res == 0)
 	{
 		free(buffer);
