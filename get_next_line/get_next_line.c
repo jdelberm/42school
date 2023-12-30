@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/30 00:54:18 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:04:49 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 
 #include "get_next_line.h"
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -46,10 +45,7 @@ int	main(void)
 	char	*line;
 	int		fd;
 	int		i;
-	int		buff_size;
 
-	buff_size = BUFFER_SIZE;
-	printf("BUFFER SIZE => %i\n", buff_size);
 	fd = open("test_file.txt", O_RDONLY);
 	line = get_next_line(fd);
 	if (!line)
