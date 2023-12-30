@@ -6,16 +6,12 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/28 21:25:35 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:01:30 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
 
 /**
  * Copies a string from source to destination with a specified size limit.
@@ -50,9 +46,10 @@ int	ft_read_char(int fd, char *c)
 {
 	char	*buffer;
 	int		res;
+
 	*c = 0;
 	res = 0;
-	buffer = malloc(BUFFER_SIZE * sizeof(char));
+	buffer = malloc(1);
 	if (!buffer)
 		return (0);
 	res = read(fd, buffer, 1);
