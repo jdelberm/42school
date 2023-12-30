@@ -1,6 +1,6 @@
 
 a.out
-*/test.c
+test.c
 */*.json
 */*.o
 .DS_Store
@@ -8,3 +8,4 @@ a.out
 */.vscode/c_cpp_properties.json
 .vscode
 ft_printf/libft/a.out
+test/get_next_line/test.sh
