@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/28 21:27:45 by judelgad         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:54:18 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@
 // TODO: Ensure lseek and global variables aren't being used
 
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
 
 char	*get_next_line(int fd)
 {
@@ -41,4 +39,26 @@ char	*get_next_line(int fd)
 		write(1, c, 1);
 	}
 	return ("");
+}
+
+int	main(void)
+{
+	char	*line;
+	int		fd;
+	int		i;
+	int		buff_size;
+
+	buff_size = BUFFER_SIZE;
+	printf("BUFFER SIZE => %i\n", buff_size);
+	fd = open("test_file.txt", O_RDONLY);
+	line = get_next_line(fd);
+	if (!line)
+		return (0);
+	i = 0;
+	while (line[i])
+	{
+		write(1, &line[i], 1);
+		i++;
+	}
+	// free(line);
 }
