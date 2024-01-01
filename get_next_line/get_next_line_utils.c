@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/01 08:59:15 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/01 09:39:31 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,17 @@ char	*ft_extract_line(char *chunk)
 
 	if (line)
 		tmp = line;
-	line = malloc(ft_alloc_len(chunk) + ft_alloc_len(tmp) + 1);
+	line = malloc(ft_alloc_len(chunk) + ft_alloc_len(tmp));
 	if (!line)
 		return (0);
 	i = ft_alloc_len(tmp);
 	j = 0;
 	if (tmp)
-		ft_strlcpy(line, tmp, i + ft_alloc_len(chunk) + 1);
+		ft_strlcpy(line, tmp, i + ft_alloc_len(chunk));
 	while (chunk[j] && chunk[j] != '\n')
 	{
 		line[i + j] = chunk[j];
 		j++;
 	}
-	line[i + j] = '\0';
 	return (line);
 }
