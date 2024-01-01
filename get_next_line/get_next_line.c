@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2023/12/30 01:22:08 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/01 08:54:28 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,51 +25,27 @@
 
 #include "get_next_line.h"
 #include <fcntl.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 char	*get_next_line(int fd)
 {
-	char	*buffer;
-	char	*head;
-	int		res;
+	char *chunk;
+	char *line;
+	int found;
 
-	buffer = malloc(BUFFER_SIZE);
-	if(!buffer)
-		return (0);
-	head = &buffer[0];
-	res = 1;
-	while (res > 0)
+	found = 1;
+	while (found)
 	{
-		res = read(fd, buffer, 1);
-		printf("%c", *buffer);
-		if (*buffer == '\n')
+		chunk = ft_read_chunk(fd);
+		if (!chunk)
+			found = 0;
+		else
 		{
-			*buffer = '\0';
-			printf("Result => %s", head);
-			break ;
+			printf("Chunk => %s\n", chunk);
+			line = ft_extract_line(chunk);
 		}
-		buffer++;
 	}
-	return ("");
-}
-
-int	main(void)
-{
-	char	*line;
-	int		fd;
-	int		i;
-
-	fd = open("test_file.txt", O_RDONLY);
-	line = get_next_line(fd);
-	if (!line)
-		return (0);
-	i = 0;
-	while (line[i])
-	{
-		write(1, &line[i], 1);
-		i++;
-	}
-	// free(line);
+	return (line);
 }
