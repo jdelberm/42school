@@ -29,23 +29,33 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	*get_next_line(int fd)
+char *get_next_line(int fd)
 {
 	char *chunk;
-	char *line;
+	static char *line;
+	char *tmp;
 	int found;
+	int res;
 
 	found = 1;
 	while (found)
 	{
 		chunk = ft_read_chunk(fd);
 		if (!chunk)
+		{
 			found = 0;
+		}
 		else
 		{
-			printf("Chunk => %s\n", chunk);
-			line = ft_extract_line(chunk);
+			res = ft_extract_line(chunk, &line);
+			if (res)
+			{
+				tmp = malloc(res);
+				ft_strlcpy(tmp, line, res);
+				line = &line[res];
+				return (tmp);
+			}
 		}
 	}
-	return (line);
+	return (0);
 }

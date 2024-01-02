@@ -12,14 +12,15 @@
 
 #include "get_next_line.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 
-size_t	ft_alloc_len(char *str)
+size_t ft_strlen(char *str)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	while (str[i])
 		i++;
 	return (i);
 }
@@ -32,10 +33,10 @@ size_t	ft_alloc_len(char *str)
  * @param size The size limit of the destination string.
  * @return The total length of the source string.
  */
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	len;
+	size_t i;
+	size_t len;
 
 	i = 0;
 	if (size > 0)
@@ -53,10 +54,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-char	*ft_read_chunk(int fd)
+char *ft_read_chunk(int fd)
 {
-	char	*buffer;
-	int		res;
+	char *buffer;
+	int res;
 
 	res = 0;
 	buffer = malloc(BUFFER_SIZE);
@@ -72,26 +73,29 @@ char	*ft_read_chunk(int fd)
 		return (buffer);
 }
 
-char	*ft_extract_line(char *chunk)
+int ft_extract_line(char *chunk, char **line)
 {
-	static char	*line;
-	char		*tmp;
-	size_t		i;
-	size_t		j;
+	char *tmp;
+	size_t i;
+	size_t j;
+	int res;
 
-	if (line)
-		tmp = line;
-	line = malloc(ft_alloc_len(chunk) + ft_alloc_len(tmp));
-	if (!line)
+	res = 0;
+	if ((*line))
+		tmp = (*line);
+	(*line) = malloc(ft_strlen(tmp) + ft_strlen(chunk) + 1);
+	if (!(*line))
 		return (0);
-	i = ft_alloc_len(tmp);
+	i = ft_strlen(tmp);
 	j = 0;
 	if (tmp)
-		ft_strlcpy(line, tmp, i + ft_alloc_len(chunk));
-	while (chunk[j] && chunk[j] != '\n')
+		ft_strlcpy((*line), tmp, i + ft_strlen(chunk));
+	while (chunk[j])
 	{
-		line[i + j] = chunk[j];
+		if (chunk[j] == '\n')
+			res = i + j + 1;
+		(*line)[i + j] = chunk[j];
 		j++;
 	}
-	return (line);
+	return (res);
 }
