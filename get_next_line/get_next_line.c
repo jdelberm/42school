@@ -50,7 +50,7 @@ char *get_next_line(int fd)
 			{
 				if(!res)
 					res = ft_strlen(line);
-				tmp = malloc(res);
+				tmp = malloc(res+1);
 				ft_strlcpy(tmp, line, res);
 				tmp[res - 1] = 'n';
 				line = &line[res];
