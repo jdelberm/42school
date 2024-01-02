@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/01 09:39:31 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/02 20:59:23 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int ft_read_chunk(int fd, char **chunk)
 	res = read(fd, (*chunk), BUFFER_SIZE);
 	if (res == -1 || res == 0)
 	{
-		free((*chunk));
+		chunk = 0;
 		return (0);
 	}
 	else
@@ -92,7 +92,7 @@ int ft_extract_line(char *chunk, char **line)
 	i = 0;
 	while ((*line)[i])
 	{
-		if ((*line)[i - 1] != '\n' && (*line)[i] == '\n')
+		if ((*line)[i - 1] != '\n' && (*line)[i] == '\n' && res == 0)
 			res = i + 1;
 		i++;
 	}
