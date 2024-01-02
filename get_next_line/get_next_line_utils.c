@@ -19,6 +19,8 @@ size_t ft_strlen(char *str)
 {
 	size_t i;
 
+	if(!str)
+		return 0;
 	i = 0;
 	while (str[i])
 		i++;
@@ -77,7 +79,6 @@ int ft_extract_line(char *chunk, char **line)
 {
 	char *tmp;
 	size_t i;
-	size_t j;
 	int res;
 
 	res = 0;
@@ -86,16 +87,15 @@ int ft_extract_line(char *chunk, char **line)
 	(*line) = malloc(ft_strlen(tmp) + ft_strlen(chunk) + 1);
 	if (!(*line))
 		return (0);
-	i = ft_strlen(tmp);
-	j = 0;
 	if (tmp)
-		ft_strlcpy((*line), tmp, i + ft_strlen(chunk));
-	while (chunk[j])
+		ft_strlcpy((*line), tmp, ft_strlen(tmp) + ft_strlen(chunk) + 1);
+	ft_strlcpy(&(*line)[ft_strlen(tmp)], chunk, ft_strlen(chunk) + 1);
+	i = 0;
+	while ((*line)[i])
 	{
-		if (chunk[j - 1] != '\n' && chunk[j] == '\n')
-			res = i + j + 1;
-		(*line)[i + j] = chunk[j];
-		j++;
+		if ((*line)[i - 1] != '\n' && (*line)[i] == '\n')
+			res = i + 1;
+		i++;
 	}
 	return (res);
 }
