@@ -92,7 +92,7 @@ int ft_extract_line(char *chunk, char **line)
 		ft_strlcpy((*line), tmp, i + ft_strlen(chunk));
 	while (chunk[j])
 	{
-		if (chunk[j] == '\n')
+		if (chunk[j - 1] != '\n' && chunk[j] == '\n')
 			res = i + j + 1;
 		(*line)[i + j] = chunk[j];
 		j++;

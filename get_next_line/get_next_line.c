@@ -52,6 +52,7 @@ char *get_next_line(int fd)
 			{
 				tmp = malloc(res);
 				ft_strlcpy(tmp, line, res);
+				tmp[res - 1] = 'n';
 				line = &line[res];
 				return (tmp);
 			}
