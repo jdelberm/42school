@@ -56,23 +56,22 @@ size_t ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-char *ft_read_chunk(int fd)
+int ft_read_chunk(int fd, char **chunk)
 {
-	char *buffer;
 	int res;
 
 	res = 0;
-	buffer = malloc(BUFFER_SIZE);
-	if (!buffer)
+	(*chunk) = malloc(BUFFER_SIZE);
+	if (!chunk)
 		return (0);
-	res = read(fd, buffer, BUFFER_SIZE);
+	res = read(fd, (*chunk), BUFFER_SIZE);
 	if (res == -1 || res == 0)
 	{
-		free(buffer);
+		free((*chunk));
 		return (0);
 	}
 	else
-		return (buffer);
+		return (res);
 }
 
 int ft_extract_line(char *chunk, char **line)
@@ -82,7 +81,7 @@ int ft_extract_line(char *chunk, char **line)
 	int res;
 
 	res = 0;
-	if ((*line))
+	if (line)
 		tmp = (*line);
 	(*line) = malloc(ft_strlen(tmp) + ft_strlen(chunk) + 1);
 	if (!(*line))

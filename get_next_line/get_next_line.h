@@ -21,7 +21,7 @@
 
 size_t	ft_strlen(char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-char	*ft_read_chunk(int fd);
+int		ft_read_chunk(int fd, char **chunk);
 int		ft_extract_line(char *chunk, char **line);
 char	*get_next_line(int fd);
 

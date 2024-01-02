@@ -34,22 +34,22 @@ char *get_next_line(int fd)
 	char *chunk;
 	static char *line;
 	char *tmp;
-	int found;
 	int res;
+	int nbytes;
 
-	found = 1;
-	while (found)
+	chunk = "";
+	while (chunk)
 	{
-		chunk = ft_read_chunk(fd);
-		if (!chunk)
-		{
-			found = 0;
-		}
+		nbytes = ft_read_chunk(fd, &chunk);
+		if (nbytes == 0 || nbytes == -1)
+			return (0);
 		else
 		{
 			res = ft_extract_line(chunk, &line);
-			if (res)
+			if (res || (res == 0 && nbytes > 0 && nbytes < BUFFER_SIZE))
 			{
+				if(!res)
+					res = ft_strlen(line);
 				tmp = malloc(res);
 				ft_strlcpy(tmp, line, res);
 				tmp[res - 1] = 'n';

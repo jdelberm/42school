@@ -8,21 +8,18 @@ int	main(void)
 {
 	char *line;
 	int fd;
-	int found;
 	int i;
 
 	printf("BUFFER SIZE => %i\n", BUFFER_SIZE);
 	fd = open("test_file.txt", O_RDONLY);
 	if (!fd)
 		return (0);
-	found = 1;
+	line = "";
 	i = 0;
-	while (found)
+	while (line)
 	{
 		line = get_next_line(fd);
-		if (!line)
-			found = 0;
-		else
+		if (line)
 			printf("line %i => %s\n", i++, line);
 	}
 }
