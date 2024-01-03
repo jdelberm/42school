@@ -8,4 +8,3 @@ test.c
 */.vscode/c_cpp_properties.json
 .vscode
 ft_printf/libft/a.out
-test/get_next_line/test.sh
