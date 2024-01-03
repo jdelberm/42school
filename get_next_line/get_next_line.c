@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/02 20:45:35 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/03 07:31:39 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	char *chunk;
-	static char *line;
-	char *tmp;
-	int res;
-	int nbytes;
+	char		*chunk;
+	static char	*line;
+	char		*tmp;
+	int			res;
+	int			nbytes;
 
-	chunk = "";
-	while (chunk)
+	while (nbytes != 0 && nbytes != -1)
 	{
 		nbytes = ft_read_chunk(fd, &chunk);
-		if ((nbytes == 0 || nbytes == -1) && !*line)
-			return (0);
-		else
+		res = ft_extract_line(chunk, &line);
+		if (res || (res == 0 && nbytes >= 0 && nbytes < BUFFER_SIZE))
 		{
-			res = ft_extract_line(chunk, &line);
-			if (res || (res == 0 && nbytes >= 0 && nbytes < BUFFER_SIZE))
-			{
-				if(!res)
-					res = ft_strlen(line) + 1;
-				tmp = malloc(res);
-				ft_strlcpy(tmp, line, res);
-				line = &line[res];
-				return (tmp);
-			}
+			if (!res)
+				res = ft_strlen(line) + 1;
+			tmp = malloc(res);
+			ft_strlcpy(tmp, line, res);
+			line = &line[res];
+			return (tmp);
 		}
 	}
 	return (0);
