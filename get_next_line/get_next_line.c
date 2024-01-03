@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/03 07:31:39 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/03 07:47:49 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ char	*get_next_line(int fd)
 	int			res;
 	int			nbytes;
 
+	nbytes = 1;
 	while (nbytes != 0 && nbytes != -1)
 	{
 		nbytes = ft_read_chunk(fd, &chunk);
 		res = ft_extract_line(chunk, &line);
-		if (res || (res == 0 && nbytes >= 0 && nbytes < BUFFER_SIZE))
+		if (res || (res == 0 && nbytes >= 0 && nbytes < BUFFER_SIZE && *line))
 		{
 			if (!res)
 				res = ft_strlen(line) + 1;
