@@ -6,21 +6,21 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/02 20:59:23 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/03 07:20:02 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
-size_t ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	size_t i;
+	size_t	i;
 
-	if(!str)
-		return 0;
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -35,10 +35,10 @@ size_t ft_strlen(char *str)
  * @param size The size limit of the destination string.
  * @return The total length of the source string.
  */
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	if (size > 0)
@@ -56,9 +56,9 @@ size_t ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-int ft_read_chunk(int fd, char **chunk)
+int	ft_read_chunk(int fd, char **chunk)
 {
-	int res;
+	int	res;
 
 	res = 0;
 	(*chunk) = malloc(BUFFER_SIZE);
@@ -74,11 +74,11 @@ int ft_read_chunk(int fd, char **chunk)
 		return (res);
 }
 
-int ft_extract_line(char *chunk, char **line)
+int	ft_extract_line(char *chunk, char **line)
 {
-	char *tmp;
-	size_t i;
-	int res;
+	char	*tmp;
+	size_t	i;
+	int		res;
 
 	res = 0;
 	if (line)
