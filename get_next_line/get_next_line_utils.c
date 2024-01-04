@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/03 07:51:56 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/04 07:11:57 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_extract_line(char *chunk, char **line)
 	int		res;
 
 	res = 0;
+	tmp = 0;
 	if (line)
 		tmp = (*line);
 	(*line) = malloc(ft_strlen(tmp) + ft_strlen(chunk) + 1);
