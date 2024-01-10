@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/03 07:47:49 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/10 06:11:04 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,23 @@
 
 char	*get_next_line(int fd)
 {
-	char		*chunk;
-	static char	*line;
-	char		*tmp;
-	int			res;
-	int			nbytes;
+	char		*line;
+	static char	*head[256];
+	int			rbytes;
 
-	nbytes = 1;
-	while (nbytes != 0 && nbytes != -1)
+	line = 0;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	//rbytes is the total of read bytes
+	rbytes = ft_read_text(fd, &head[fd]);
+	if (rbytes != -1 && rbytes != 0)
+		//check if /n pos is equal to rbytes.
+		// if it doesn't there is a remainder
+		ft_extract_line(&head[fd], &line, rbytes);
+	else if (head[fd])
 	{
-		nbytes = ft_read_chunk(fd, &chunk);
-		res = ft_extract_line(chunk, &line);
-		if (res || (res == 0 && nbytes >= 0 && nbytes < BUFFER_SIZE && *line))
-		{
-			if (!res)
-				res = ft_strlen(line) + 1;
-			tmp = malloc(res);
-			ft_strlcpy(tmp, line, res);
-			line = &line[res];
-			return (tmp);
-		}
+		line = ft_strdup(head[fd]);
+		free((head[fd]));
 	}
-	return (0);
+	return (line);
 }
