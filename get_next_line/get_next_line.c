@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/13 22:11:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/13 22:18:22 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,20 @@ void	ft_add_head(char **line, char **head)
 	}
 }
 
+int	ft_check_read(int fd, int *rbytes, char **text, char **head)
+{
+	if (ft_read_text(fd, rbytes, text) == -1)
+	{
+		if ((*head))
+		{
+			free((*head));
+			(*head) = 0;
+		}
+		return (0);
+	}
+	return (1);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -114,23 +128,17 @@ char	*get_next_line(int fd)
 	text = 0;
 	if (!(fd < 0 || BUFFER_SIZE <= 0) && !ft_contains_nl(&head[fd], &line))
 	{
-		if (ft_read_text(fd, &rbytes, &text) == -1)
+		if (ft_check_read(fd, &rbytes, &text, &head[fd]))
 		{
-			if (head[fd])
-			{
-				free(head[fd]);
-				head[fd] = 0;
-			}
-			return (0);
+			if (rbytes != -1 && rbytes != 0 && text)
+				line = ft_extract_line(&remainder, text, rbytes);
+			else if ((rbytes == -1 || rbytes == 0) && head[fd])
+				line = ft_strdup("");
+			ft_add_head(&line, &head[fd]);
+			head[fd] = remainder;
+			if (text)
+				free(text);
 		}
-		if (rbytes != -1 && rbytes != 0 && text)
-			line = ft_extract_line(&remainder, text, rbytes);
-		else if ((rbytes == -1 || rbytes == 0) && head[fd])
-			line = ft_strdup("");
-		ft_add_head(&line, &head[fd]);
-		head[fd] = remainder;
-		if (text)
-			free(text);
 	}
 	return (line);
 }
