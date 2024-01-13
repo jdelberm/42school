@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/13 16:48:58 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/13 22:11:30 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	ft_contains_nl(char **head, char **line)
 		if (!*(*head))
 		{
 			free((*head));
+			(*head) = 0;
 			(*line) = 0;
 			return (1);
 		}
@@ -113,7 +114,15 @@ char	*get_next_line(int fd)
 	text = 0;
 	if (!(fd < 0 || BUFFER_SIZE <= 0) && !ft_contains_nl(&head[fd], &line))
 	{
-		text = ft_read_text(fd, &rbytes);
+		if (ft_read_text(fd, &rbytes, &text) == -1)
+		{
+			if (head[fd])
+			{
+				free(head[fd]);
+				head[fd] = 0;
+			}
+			return (0);
+		}
 		if (rbytes != -1 && rbytes != 0 && text)
 			line = ft_extract_line(&remainder, text, rbytes);
 		else if ((rbytes == -1 || rbytes == 0) && head[fd])

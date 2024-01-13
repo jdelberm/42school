@@ -16,13 +16,32 @@ int	main(void)
 		return (0);
 	line = "";
 	i = 1;
-	while (line)
+	line = get_next_line(fd);
+	if (line)
 	{
-		line = get_next_line(fd);
-		if (line)
-		{
-			printf("line %i => \"%s\"\n", i++, line);
-			free(line);
-		}
+		printf("line %i => \"%s\"\n", i++, line);
+		free(line);
+	}
+
+	line = get_next_line(fd);
+	if (line)
+	{
+		printf("line %i => \"%s\"\n", i++, line);
+		free(line);
+	}
+	close(fd);
+	line = get_next_line(fd);
+	if (line)
+	{
+		printf("line %i => \"%s\"\n", i++, line);
+		free(line);
+	}
+
+	fd = open("read_error.txt", O_RDONLY);
+	line = get_next_line(fd);
+	if (line)
+	{
+		printf("line %i => \"%s\"\n", i++, line);
+		free(line);
 	}
 }

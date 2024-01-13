@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/13 11:42:16 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/13 22:03:29 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,32 +116,33 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-char	*ft_read_text(int fd, int *rbytes)
+int	ft_read_text(int fd, int *rbytes, char **text)
 {
 	int		res;
 	char	*buffer;
-	char	*text;
 	char	*aux;
 
-	text = ft_strdup("");
+	(*text) = ft_strdup("");
 	res = 0;
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (0);
 	res = read(fd, buffer, BUFFER_SIZE);
+	if (res == -1)
+		free((*text));
 	while (res != -1 && res != 0)
 	{
 		*rbytes += res;
 		buffer[res] = 0;
-		aux = text;
-		text = ft_strjoin(text, buffer);
+		aux = (*text);
+		(*text) = ft_strjoin((*text), buffer);
 		free(aux);
-		if ((text && ft_strrchr(text, '\n')) || res == 0 || res == -1)
+		if ((text && ft_strrchr((*text), '\n')) || res == 0 || res == -1)
 			break ;
 		res = read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
-	return (text);
+	return (res);
 }
 
 char	*ft_extract_line(char **remainder, char *text, int len)
