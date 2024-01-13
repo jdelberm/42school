@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/10 06:31:02 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/13 11:42:16 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
  * @return A pointer to the last occurrence of the character in the string,
  *         or NULL if the character is not found.
  */
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *found;
-	unsigned char uc;
+	char			*found;
+	unsigned char	uc;
 
 	uc = c;
 	found = 0;
@@ -51,24 +51,32 @@ char *ft_strrchr(const char *s, int c)
  * @return  A pointer to the newly allocated string, or NULL if the allocation
  *  fails.
  */
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-	char *dst;
-	int i;
+	char	*dst;
+	int		i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	dst = malloc(i + 1);
-	if (!dst)
-		return (0);
-	i = 0;
-	while (s[i])
+	if (!*s)
 	{
-		dst[i] = s[i];
-		i++;
+		dst = (malloc(1));
+		*dst = 0;
 	}
-	dst[i] = s[i];
+	else
+	{
+		i = 0;
+		while (s[i])
+			i++;
+		dst = malloc(i + 1);
+		if (!dst)
+			return (0);
+		i = 0;
+		while (s[i])
+		{
+			dst[i] = s[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
 	return (dst);
 }
 
@@ -79,12 +87,12 @@ char *ft_strdup(const char *s)
  * @param s2 The second string to be concatenated.
  * @return The concatenated string, or NULL if memory allocation fails.
  */
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *res;
-	size_t s1_size;
-	size_t s2_size;
-	size_t i;
+	char	*res;
+	size_t	s1_size;
+	size_t	s2_size;
+	size_t	i;
 
 	s1_size = 0;
 	while (s1[s1_size])
@@ -96,6 +104,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	if (!res)
 		return (0);
 	i = 0;
+	res[s1_size + s2_size] = 0;
 	while (i < s1_size + s2_size)
 	{
 		if (i < s1_size)
@@ -107,15 +116,14 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-int ft_read_text(int fd, char **head)
+char	*ft_read_text(int fd, int *rbytes)
 {
-	int res;
-	char *buffer;
+	int		res;
+	char	*buffer;
+	char	*text;
+	char	*aux;
 
-	if (!(*head))
-		(*head) = ft_strdup("");
-	if (!(*head))
-		return (0);
+	text = ft_strdup("");
 	res = 0;
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
@@ -123,40 +131,40 @@ int ft_read_text(int fd, char **head)
 	res = read(fd, buffer, BUFFER_SIZE);
 	while (res != -1 && res != 0)
 	{
+		*rbytes += res;
 		buffer[res] = 0;
-		(*head) = ft_strjoin(*head, buffer);
-		if (ft_strrchr((*head), '\n') || res == 0 || res == -1)
+		aux = text;
+		text = ft_strjoin(text, buffer);
+		free(aux);
+		if ((text && ft_strrchr(text, '\n')) || res == 0 || res == -1)
 			break ;
-		res += read(fd, buffer, BUFFER_SIZE);
+		res = read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
-	return (res);
+	return (text);
 }
 
-int ft_extract_line(char **head, char **line, int len)
+char	*ft_extract_line(char **remainder, char *text, int len)
 {
-	char	*tmp;
-	int	i;
+	char	*line;
+	int		i;
 
-	(*line) = malloc(len);
-	if (!(*line))
+	line = malloc(len + 1);
+	if (!line)
 		return (0);
 	i = 0;
-	while ((*head)[i] && (*head)[i] != '\n')
+	while (text[i])
 	{
-		(*line)[i] = (*head)[i];
+		line[i] = text[i];
+		if (text[i] == '\n')
+			break ;
 		i++;
 	}
-	if ((*head)[i] == '\n')
-	{
-		(*line)[i] = 0;
-		if (i < len - 1)
-			tmp = ft_strdup(&(*head)[i + 1]);
-		else
-			tmp = 0;
-		free((*head));
-		(*head) = tmp;
-		return (i + 1);
-	}
-	return (0);
+	if (!text[i])
+		line[i] = 0;
+	else
+		line[i + 1] = 0;
+	if (i + 1 < len)
+		(*remainder) = ft_strdup(&text[i + 1]);
+	return (line);
 }

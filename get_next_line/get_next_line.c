@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/10 06:11:04 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:48:58 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,101 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <unistd.h>
+
+void	ft_headtoline(char **head, char **line, int i, int j)
+{
+	char	*aux;
+
+	if (i - 1 < 0)
+	{
+		(*line) = malloc(2);
+		(*line)[0] = (*head)[0];
+		(*line)[1] = 0;
+		aux = (*head);
+		(*head) = ft_strdup(&(*head)[i + 1]);
+		free(aux);
+	}
+	else
+	{
+		(*line) = malloc(i + 2);
+		j = i + 1;
+		while (j--)
+			(*line)[j] = (*head)[j];
+		(*line)[i + 1] = 0;
+		aux = (*head);
+		(*head) = ft_strdup(&(*head)[i + 1]);
+		free(aux);
+	}
+}
+
+int	ft_contains_nl(char **head, char **line)
+{
+	int	i;
+	int	j;
+
+	if ((*head))
+	{
+		if (!*(*head))
+		{
+			free((*head));
+			(*line) = 0;
+			return (1);
+		}
+		i = 0;
+		j = 0;
+		while ((*head)[i])
+		{
+			if ((*head)[i] == '\n')
+			{
+				ft_headtoline(head, line, i, j);
+				return (1);
+			}
+			i++;
+		}
+	}
+	return (0);
+}
+
+void	ft_add_head(char **line, char **head)
+{
+	char	*aux;
+
+	if ((*head))
+	{
+		aux = (*line);
+		(*line) = ft_strjoin((*head), (*line));
+		free((*head));
+		(*head) = 0;
+		if (aux)
+			free(aux);
+	}
+}
 
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*head[256];
+	static char	*head[FD_OPEN_MAX];
+	char		*remainder;
+	char		*text;
 	int			rbytes;
 
 	line = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	//rbytes is the total of read bytes
-	rbytes = ft_read_text(fd, &head[fd]);
-	if (rbytes != -1 && rbytes != 0)
-		//check if /n pos is equal to rbytes.
-		// if it doesn't there is a remainder
-		ft_extract_line(&head[fd], &line, rbytes);
-	else if (head[fd])
+	remainder = 0;
+	rbytes = 0;
+	text = 0;
+	if (!(fd < 0 || BUFFER_SIZE <= 0) && !ft_contains_nl(&head[fd], &line))
 	{
-		line = ft_strdup(head[fd]);
-		free((head[fd]));
+		text = ft_read_text(fd, &rbytes);
+		if (rbytes != -1 && rbytes != 0 && text)
+			line = ft_extract_line(&remainder, text, rbytes);
+		else if ((rbytes == -1 || rbytes == 0) && head[fd])
+			line = ft_strdup("");
+		ft_add_head(&line, &head[fd]);
+		head[fd] = remainder;
+		if (text)
+			free(text);
 	}
 	return (line);
 }

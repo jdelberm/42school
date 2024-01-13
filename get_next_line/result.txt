@@ -1,0 +1,116 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                Welcome to Francinette, a 42 tester framework!                ║
+╚═══════════════════════╦══════════════════════════════╦═══════════════════════╝
+                        ║         get_next_line        ║
+                        ╚══════════════════════════════╝
+⠋ Preparing framework⠙ Preparing framework⠹ Preparing framework⠸ Preparing framework✔ Preparing framework
+⠋ Executing: norminette⠙ Executing: norminette⠹ Executing: norminette⠸ Executing: norminette⠼ Executing: norminette⠴ Executing: norminette⠦ Executing: norminette⠧ Executing: norminette⠇ Executing: norminette⠏ Executing: norminette⠋ Executing: norminette⠙ Executing: norminette⠹ Executing: norminette⠸ Executing: norminette⠼ Executing: norminette⠴ Executing: norminette⠦ Executing: norminette⠧ Executing: norminette⠇ Executing: norminette✖ Executing: norminette
+get_next_line.c: Error!
+Error: WRONG_SCOPE_COMMENT  (line:  50, col:  17):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  99, col:  50):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line:  99, col:  50):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 104, col:   9):	Comment is invalid in this scope
+Error: TOO_MANY_LINES       (line: 112, col:   1):	Function has more than 25 lines
+get_next_line.h: OK!
+get_next_line_utils.c: Error!
+Error: WRONG_SCOPE_COMMENT  (line: 107, col:   5):	Comment is invalid in this scope
+Error: TOO_MANY_LINES       (line: 118, col:   1):	Function has more than 25 lines
+Error: WRONG_SCOPE_COMMENT  (line: 127, col:   5):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 129, col:   5):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 139, col:   9):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 140, col:   9):	Comment is invalid in this scope
+Error: TOO_MANY_LINES       (line: 150, col:   1):	Function has more than 25 lines
+Error: WRONG_SCOPE_COMMENT  (line: 169, col:   5):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 170, col:  22):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 170, col:  22):	Comment is invalid in this scope
+
+⠋ Executing: make fclean all (no bonus)⠙ Executing: make fclean all (no bonus)⠹ Executing: make fclean all (no bonus)✔ Executing: make fclean all (no bonus)
+ℹ Running tests: gnlTester (https://github.com/Tripouille/gnlTester)
+[34m[Mandatory]
+[37m[BUFFER_SIZE = 1]: [0m
+[37mInvalid fd: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/empty: [32m1.OK [32m2.OK [0m
+[37mfiles/nl: [31m1.KO [32m2.OK [0m
+[37mfiles/41_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/41_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/42_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/42_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/43_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/43_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/multiple_nlx5: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [32m6.OK [0m
+[37mfiles/multiple_line_no_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [32m5.OK [32m6.OK [0m
+[37mfiles/multiple_line_with_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [32m6.OK [0m
+[37mfiles/alternate_line_nl_no_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [31m6.KO [31m7.KO [31m8.KO [32m9.OK [32m10.OK [0m
+[37mfiles/alternate_line_nl_with_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [31m6.KO [31m7.KO [31m8.KO [31m9.KO [32m10.OK [0m
+[37mfiles/big_line_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/big_line_with_nl: [31m1.KO [32m2.OK [0m
+[37mstdin: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [31m6.KO [31m7.KO [31m8.KO [31m9.KO [32m10.OK [0m
+
+[37m[BUFFER_SIZE = 42]: [0m
+[37mInvalid fd: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/empty: [32m1.OK [32m2.OK [0m
+[37mfiles/nl: [31m1.KO [32m2.OK [0m
+[37mfiles/41_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/41_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/42_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/42_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/43_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/43_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/multiple_nlx5: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO gnlTest(31372,0x10d674dc0) malloc: *** error for object 0x7f8946604274: pointer being freed was not allocated
+gnlTest(31372,0x10d674dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m6.ABORT
+[37mfiles/multiple_line_no_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [32m5.OK [32m6.OK [0m
+[37mfiles/multiple_line_with_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [32m6.OK [0m
+[37mfiles/alternate_line_nl_no_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO gnlTest(31426,0x10d674dc0) malloc: *** error for object 0x7f8946604331: pointer being freed was not allocated
+gnlTest(31426,0x10d674dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m5.ABORT
+[37mfiles/alternate_line_nl_with_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO gnlTest(31444,0x10d674dc0) malloc: *** error for object 0x7f8946604331: pointer being freed was not allocated
+gnlTest(31444,0x10d674dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m5.ABORT
+[37mfiles/big_line_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/big_line_with_nl: [31m1.KO [32m2.OK [0m
+[37mstdin: [31m1.KO [31m2.KO [31m3.KO [31m4.KO gnlTest(31499,0x10d674dc0) malloc: *** error for object 0x7f8946604331: pointer being freed was not allocated
+gnlTest(31499,0x10d674dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m5.ABORT
+
+[37m[BUFFER_SIZE = 10000000]: [0m
+[37mInvalid fd: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/empty: [32m1.OK [32m2.OK [0m
+[37mfiles/nl: [31m1.KO [32m2.OK [0m
+[37mfiles/41_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/41_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/42_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/42_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/43_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/43_with_nl: [31m1.KO [32m2.OK [32m3.OK [0m
+[37mfiles/multiple_nlx5: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO gnlTest(32409,0x114a69dc0) malloc: *** error for object 0x7fa014f04244: pointer being freed was not allocated
+gnlTest(32409,0x114a69dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m6.ABORT
+[37mfiles/multiple_line_no_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO gnlTest(32428,0x114a69dc0) malloc: *** error for object 0x7fa014f044e2: pointer being freed was not allocated
+gnlTest(32428,0x114a69dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m5.ABORT
+[37mfiles/multiple_line_with_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO gnlTest(32446,0x114a69dc0) malloc: *** error for object 0x7fa014f04508: pointer being freed was not allocated
+gnlTest(32446,0x114a69dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m6.ABORT
+[37mfiles/alternate_line_nl_no_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [31m6.KO [31m7.KO [31m8.KO gnlTest(32464,0x114a69dc0) malloc: *** error for object 0x7fa014c05ce6: pointer being freed was not allocated
+gnlTest(32464,0x114a69dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m9.ABORT
+[37mfiles/alternate_line_nl_with_nl: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [31m6.KO [31m7.KO [31m8.KO [31m9.KO gnlTest(32482,0x114a69dc0) malloc: *** error for object 0x7fa014f04510: pointer being freed was not allocated
+gnlTest(32482,0x114a69dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m10.ABORT
+[37mfiles/big_line_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/big_line_with_nl: [31m1.KO [32m2.OK [0m
+[37mstdin: [31m1.KO [31m2.KO [31m3.KO [31m4.KO [31m5.KO [31m6.KO [31m7.KO [31m8.KO [31m9.KO gnlTest(32536,0x114a69dc0) malloc: *** error for object 0x7fa014f04510: pointer being freed was not allocated
+gnlTest(32536,0x114a69dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+[93m10.ABORT
+
+
+To see the tests open: /Users/judelgad/francinette/tests/get_next_line/gnlTester/tests/mandatory.cpp
+
+
+Summary: no bonus
+
+Norminette Errors: get_next_line.c, get_next_line_utils.c
+
+Failed tests: gnlTester
+
