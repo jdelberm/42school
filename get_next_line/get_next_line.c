@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/13 22:18:22 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:10:25 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,24 @@
 #include <time.h>
 #include <unistd.h>
 
-void	ft_headtoline(char **head, char **line, int i, int j)
+void	ft_headtoline(char **head, char **line, int i)
 {
 	char	*aux;
+	int		j;
 
-	if (i - 1 < 0)
-	{
-		(*line) = malloc(2);
-		(*line)[0] = (*head)[0];
-		(*line)[1] = 0;
-		aux = (*head);
-		(*head) = ft_strdup(&(*head)[i + 1]);
-		free(aux);
-	}
-	else
-	{
-		(*line) = malloc(i + 2);
-		j = i + 1;
-		while (j--)
-			(*line)[j] = (*head)[j];
-		(*line)[i + 1] = 0;
-		aux = (*head);
-		(*head) = ft_strdup(&(*head)[i + 1]);
-		free(aux);
-	}
+	(*line) = malloc(i + 1);
+	j = i + 1;
+	while (j--)
+		(*line)[j] = (*head)[j];
+	(*line)[i] = 0;
+	aux = (*head);
+	(*head) = ft_strdup(&(*head)[i]);
+	free(aux);
 }
 
 int	ft_contains_nl(char **head, char **line)
 {
 	int	i;
-	int	j;
 
 	if ((*head))
 	{
@@ -71,12 +59,11 @@ int	ft_contains_nl(char **head, char **line)
 			return (1);
 		}
 		i = 0;
-		j = 0;
 		while ((*head)[i])
 		{
 			if ((*head)[i] == '\n')
 			{
-				ft_headtoline(head, line, i, j);
+				ft_headtoline(head, line, i + 1);
 				return (1);
 			}
 			i++;
@@ -96,7 +83,10 @@ void	ft_add_head(char **line, char **head)
 		free((*head));
 		(*head) = 0;
 		if (aux)
+		{
 			free(aux);
+			aux = 0;
+		}
 	}
 }
 
