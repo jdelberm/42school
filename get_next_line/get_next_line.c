@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/14 16:10:25 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:21:07 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ char	*get_next_line(int fd)
 	remainder = 0;
 	rbytes = 0;
 	text = 0;
-	if (!(fd < 0 || BUFFER_SIZE <= 0) && !ft_contains_nl(&head[fd], &line))
+	if ((fd >= 0 || BUFFER_SIZE) > 0 && !ft_contains_nl(&head[fd], &line))
 	{
 		if (ft_check_read(fd, &rbytes, &text, &head[fd]))
 		{
