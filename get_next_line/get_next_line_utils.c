@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/13 22:03:29 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/20 16:35:40 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+size_t ft_strlen(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 /**
  * Searches for the last occurrence of a character in a string.
@@ -23,10 +33,10 @@
  * @return A pointer to the last occurrence of the character in the string,
  *         or NULL if the character is not found.
  */
-char	*ft_strrchr(const char *s, int c)
+char *ft_strchr(const char *s, int c)
 {
-	char			*found;
-	unsigned char	uc;
+	char *found;
+	unsigned char uc;
 
 	uc = c;
 	found = 0;
@@ -51,14 +61,14 @@ char	*ft_strrchr(const char *s, int c)
  * @return  A pointer to the newly allocated string, or NULL if the allocation
  *  fails.
  */
-char	*ft_strdup(const char *s)
+char *ft_strdup(const char *s)
 {
-	char	*dst;
-	int		i;
+	char *dst;
+	int i;
 
 	if (!*s)
 	{
-		dst = (malloc(1));
+		dst = malloc(1);
 		*dst = 0;
 	}
 	else
@@ -87,12 +97,12 @@ char	*ft_strdup(const char *s)
  * @param s2 The second string to be concatenated.
  * @return The concatenated string, or NULL if memory allocation fails.
  */
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	char	*res;
-	size_t	s1_size;
-	size_t	s2_size;
-	size_t	i;
+	char *res;
+	size_t s1_size;
+	size_t s2_size;
+	size_t i;
 
 	s1_size = 0;
 	while (s1[s1_size])
@@ -116,56 +126,16 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-int	ft_read_text(int fd, int *rbytes, char **text)
+char *ft_strjoin_and_free(char *str_a, char *str_b)
 {
-	int		res;
-	char	*buffer;
-	char	*aux;
+	char *res;
 
-	(*text) = ft_strdup("");
-	res = 0;
-	buffer = malloc(BUFFER_SIZE + 1);
-	if (!buffer)
-		return (0);
-	res = read(fd, buffer, BUFFER_SIZE);
-	if (res == -1)
-		free((*text));
-	while (res != -1 && res != 0)
-	{
-		*rbytes += res;
-		buffer[res] = 0;
-		aux = (*text);
-		(*text) = ft_strjoin((*text), buffer);
-		free(aux);
-		if ((text && ft_strrchr((*text), '\n')) || res == 0 || res == -1)
-			break ;
-		res = read(fd, buffer, BUFFER_SIZE);
-	}
-	free(buffer);
+	if (!str_a)
+		str_a = ft_strdup("");
+	if (!str_b)
+		str_b = ft_strdup("");
+	res = ft_strjoin(str_a, str_b);
+	free(str_a);
+	free(str_b);
 	return (res);
-}
-
-char	*ft_extract_line(char **remainder, char *text, int len)
-{
-	char	*line;
-	int		i;
-
-	line = malloc(len + 1);
-	if (!line)
-		return (0);
-	i = 0;
-	while (text[i])
-	{
-		line[i] = text[i];
-		if (text[i] == '\n')
-			break ;
-		i++;
-	}
-	if (!text[i])
-		line[i] = 0;
-	else
-		line[i + 1] = 0;
-	if (i + 1 < len)
-		(*remainder) = ft_strdup(&text[i + 1]);
-	return (line);
 }

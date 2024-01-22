@@ -6,22 +6,9 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/14 23:38:43 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/20 17:51:12 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO: Analyze where static variables could be useful
-// TODO: Program must be compiled with flag -D BUFFER_SIZE=xx
-// TODO: Make read buffer be determined by BUFFER_SIZE value
-// TODO: Read line
-// TODO: Return NULL if read fails
-// TODO: Return NULL if EOF is reached
-// TODO: Read from file
-// TODO: Read from stdin
-// TODO: Ensure line ending with \n
-// TODO: Avoid \n ending if EOF doesn't
-// TODO: Declare util functions in GET_NEXT_LINE_UTILS
-// TODO: Ensure lseek and global variables aren't being used
 
 #include "get_next_line.h"
 #include <fcntl.h>
@@ -30,105 +17,105 @@
 #include <time.h>
 #include <unistd.h>
 
-void	ft_headtoline(char **head, char **line, int i)
+int ft_contains_nl(const char *str)
 {
-	char	*aux;
-	int		j;
+	int found;
 
-	(*line) = malloc(i + 1);
-	j = i + 1;
-	while (j--)
-		(*line)[j] = (*head)[j];
-	(*line)[i] = 0;
-	aux = (*head);
-	(*head) = ft_strdup(&(*head)[i]);
-	free(aux);
-}
-
-int	ft_contains_nl(char **head, char **line)
-{
-	int	i;
-
-	if ((*head))
+	found = 0;
+	while (*str && !found)
 	{
-		if (!*(*head))
-		{
-			free((*head));
-			(*head) = 0;
-			(*line) = 0;
-			return (1);
-		}
-		i = 0;
-		while ((*head)[i])
-		{
-			if ((*head)[i] == '\n')
-			{
-				ft_headtoline(head, line, i + 1);
-				return (1);
-			}
-			i++;
-		}
+		if (*str == '\n')
+			found = 1;
+		str++;
 	}
-	return (0);
+	return (found);
 }
 
-void	ft_add_head(char **line, char **head)
+char *ft_get_line(char *str)
 {
-	char	*aux;
+	char *line;
+	int i;
 
-	if ((*head))
-	{
-		aux = (*line);
-		(*line) = ft_strjoin((*head), (*line));
-		free((*head));
-		(*head) = 0;
-		if (aux)
-		{
-			free(aux);
-			aux = 0;
-		}
-	}
-}
-
-int	ft_check_read(int fd, int *rbytes, char **text, char **head)
-{
-	if (ft_read_text(fd, rbytes, text) == -1)
-	{
-		if ((*head))
-		{
-			free((*head));
-			(*head) = 0;
-		}
+	line = malloc(ft_strlen(str) + 1);
+	if (!line)
 		return (0);
+	i = 0;
+	while (str[i])
+	{
+		line[i] = str[i];
+		if (str[i] == '\n')
+			break;
+		i++;
 	}
-	return (1);
+	if (!str[i])
+		line[i] = 0;
+	else
+		line[i + 1] = 0;
+	return (line);
 }
 
-char	*get_next_line(int fd)
+char *ft_get_remainder(char *str, char *line)
 {
-	char		*line;
-	static char	*head[FD_OPEN_MAX];
-	char		*remainder;
-	char		*text;
-	int			rbytes;
+	char *remainder;
+	int len_size;
 
-	line = 0;
 	remainder = 0;
-	rbytes = 0;
-	text = 0;
-	if ((fd >= 0 && BUFFER_SIZE > 0) && !ft_contains_nl(&head[fd], &line))
+	if (line)
 	{
-		if (ft_check_read(fd, &rbytes, &text, &head[fd]))
-		{
-			if (rbytes != -1 && rbytes != 0 && text)
-				line = ft_extract_line(&remainder, text, rbytes);
-			else if ((rbytes == -1 || rbytes == 0) && head[fd])
-				line = ft_strdup("");
-			ft_add_head(&line, &head[fd]);
-			head[fd] = remainder;
-			if (text)
-				free(text);
-		}
+		len_size = ft_strlen(line);
+		remainder = ft_strdup(&str[len_size]);
 	}
+	free(str);
+	return (remainder);
+}
+
+char *ft_read_text(int fd)
+{
+	int res;
+	char *buffer;
+	char *text;
+
+	res = 1;
+	text = 0;
+	while (res != -1 && res != 0)
+	{
+		buffer = malloc(BUFFER_SIZE + 1);
+		if (!buffer)
+			return (0);
+		res = read(fd, buffer, BUFFER_SIZE);
+		if (res != -1 && res != 0)
+		{
+			buffer[res] = 0;
+			text = ft_strjoin_and_free(text, buffer);
+			if ((text && ft_strchr(text, '\n')))
+				break;
+		}
+		else
+			free(buffer);
+	}
+	return (text);
+}
+
+char *get_next_line(int fd)
+{
+	char *line;
+	char *text;
+	static char *str[FD_OPEN_MAX];
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	line = 0;
+	// If there is str and it contains a nl, extract the line
+	if (str[fd] && ft_contains_nl(str[fd]))
+		line = ft_get_line(str[fd]);
+	else
+	{
+		// if str[fd] == 0, treat it as like so
+		text = ft_read_text(fd);
+		str[fd] = ft_strjoin_and_free(str[fd], text);
+		if (*str[fd])
+			line = ft_get_line(str[fd]);
+	}
+	str[fd] = ft_get_remainder(str[fd], line);
 	return (line);
 }
