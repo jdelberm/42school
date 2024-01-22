@@ -69,14 +69,13 @@ char *ft_get_remainder(char *str, char *line)
 	return (remainder);
 }
 
-char *ft_read_text(int fd)
+int ft_read_text(int fd, char **text)
 {
 	int res;
 	char *buffer;
-	char *text;
 
 	res = 1;
-	text = 0;
+	(*text) = 0;
 	while (res != -1 && res != 0)
 	{
 		buffer = malloc(BUFFER_SIZE + 1);
@@ -86,14 +85,14 @@ char *ft_read_text(int fd)
 		if (res != -1 && res != 0)
 		{
 			buffer[res] = 0;
-			text = ft_strjoin_and_free(text, buffer);
-			if ((text && ft_strchr(text, '\n')))
+			(*text) = ft_strjoin_and_free((*text), buffer);
+			if (((*text) && ft_strchr((*text), '\n')))
 				break;
 		}
 		else
 			free(buffer);
 	}
-	return (text);
+	return (res);
 }
 
 char *get_next_line(int fd)
@@ -111,7 +110,12 @@ char *get_next_line(int fd)
 	else
 	{
 		// if str[fd] == 0, treat it as like so
-		text = ft_read_text(fd);
+		if (ft_read_text(fd, &text) == -1)
+		{
+			free(str[fd]);
+			str[fd] = 0;
+			return (0);
+		}
 		str[fd] = ft_strjoin_and_free(str[fd], text);
 		if (*str[fd])
 			line = ft_get_line(str[fd]);
