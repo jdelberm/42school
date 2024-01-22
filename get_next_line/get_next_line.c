@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/22 20:25:02 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/22 23:59:50 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_read_text(int fd, char **text)
 	char	*buffer;
 
 	res = 1;
-	(*text) = 0;
+	*text = 0;
 	while (res != -1 && res != 0)
 	{
 		buffer = malloc(BUFFER_SIZE + 1);
@@ -85,8 +85,8 @@ int	ft_read_text(int fd, char **text)
 		if (res != -1 && res != 0)
 		{
 			buffer[res] = 0;
-			(*text) = ft_strjoin_and_free((*text), buffer);
-			if (((*text) && ft_strchr((*text), '\n')))
+			(*text) = ft_strjoin_and_free(*text, buffer);
+			if (*text && ft_strchr(*text, '\n'))
 				break ;
 		}
 		else
