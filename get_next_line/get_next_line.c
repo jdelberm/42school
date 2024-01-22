@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/20 17:51:12 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:25:02 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include <time.h>
 #include <unistd.h>
 
-int ft_contains_nl(const char *str)
+int	ft_contains_nl(const char *str)
 {
-	int found;
+	int	found;
 
 	found = 0;
 	while (*str && !found)
@@ -31,10 +31,10 @@ int ft_contains_nl(const char *str)
 	return (found);
 }
 
-char *ft_get_line(char *str)
+char	*ft_get_line(char *str)
 {
-	char *line;
-	int i;
+	char	*line;
+	int		i;
 
 	line = malloc(ft_strlen(str) + 1);
 	if (!line)
@@ -44,7 +44,7 @@ char *ft_get_line(char *str)
 	{
 		line[i] = str[i];
 		if (str[i] == '\n')
-			break;
+			break ;
 		i++;
 	}
 	if (!str[i])
@@ -54,10 +54,10 @@ char *ft_get_line(char *str)
 	return (line);
 }
 
-char *ft_get_remainder(char *str, char *line)
+char	*ft_get_remainder(char *str, char *line)
 {
-	char *remainder;
-	int len_size;
+	char	*remainder;
+	int		len_size;
 
 	remainder = 0;
 	if (line)
@@ -69,10 +69,10 @@ char *ft_get_remainder(char *str, char *line)
 	return (remainder);
 }
 
-int ft_read_text(int fd, char **text)
+int	ft_read_text(int fd, char **text)
 {
-	int res;
-	char *buffer;
+	int		res;
+	char	*buffer;
 
 	res = 1;
 	(*text) = 0;
@@ -87,7 +87,7 @@ int ft_read_text(int fd, char **text)
 			buffer[res] = 0;
 			(*text) = ft_strjoin_and_free((*text), buffer);
 			if (((*text) && ft_strchr((*text), '\n')))
-				break;
+				break ;
 		}
 		else
 			free(buffer);
@@ -95,21 +95,19 @@ int ft_read_text(int fd, char **text)
 	return (res);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	char *line;
-	char *text;
-	static char *str[FD_OPEN_MAX];
+	char		*line;
+	char		*text;
+	static char	*str[FD_OPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	line = 0;
-	// If there is str and it contains a nl, extract the line
 	if (str[fd] && ft_contains_nl(str[fd]))
 		line = ft_get_line(str[fd]);
 	else
 	{
-		// if str[fd] == 0, treat it as like so
 		if (ft_read_text(fd, &text) == -1)
 		{
 			free(str[fd]);

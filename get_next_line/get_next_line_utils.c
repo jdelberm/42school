@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/20 16:35:40 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:23:08 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -33,10 +33,10 @@ size_t ft_strlen(const char *str)
  * @return A pointer to the last occurrence of the character in the string,
  *         or NULL if the character is not found.
  */
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char *found;
-	unsigned char uc;
+	char			*found;
+	unsigned char	uc;
 
 	uc = c;
 	found = 0;
@@ -61,10 +61,10 @@ char *ft_strchr(const char *s, int c)
  * @return  A pointer to the newly allocated string, or NULL if the allocation
  *  fails.
  */
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-	char *dst;
-	int i;
+	char	*dst;
+	int		i;
 
 	if (!*s)
 	{
@@ -97,12 +97,12 @@ char *ft_strdup(const char *s)
  * @param s2 The second string to be concatenated.
  * @return The concatenated string, or NULL if memory allocation fails.
  */
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *res;
-	size_t s1_size;
-	size_t s2_size;
-	size_t i;
+	char	*res;
+	size_t	s1_size;
+	size_t	s2_size;
+	size_t	i;
 
 	s1_size = 0;
 	while (s1[s1_size])
@@ -126,9 +126,9 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-char *ft_strjoin_and_free(char *str_a, char *str_b)
+char	*ft_strjoin_and_free(char *str_a, char *str_b)
 {
-	char *res;
+	char	*res;
 
 	if (!str_a)
 		str_a = ft_strdup("");
