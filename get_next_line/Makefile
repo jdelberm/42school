@@ -15,10 +15,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 # Files
 SRC = get_next_line_utils.c get_next_line.c 
-BSRC = get_next_line_utils_bonus.c get_next_line_bonus.c 
+# BSRC = get_next_line_utils_bonus.c get_next_line_bonus.c 
 
 OBJECTS = $(SRC:.c=.o)
-BOBJECTS = $(BSRC:.c=.o)
+# BOBJECTS = $(BSRC:.c=.o)
 
 NAME = get_next_line.a
 
@@ -27,8 +27,8 @@ $(NAME): $(OBJECTS)
 
 all: $(NAME)
 
-bonus: $(BOBJECTS)
-	ar rcs $(NAME) $(BOBJECTS)
+# bonus: $(BOBJECTS)
+# 	ar rcs $(NAME) $(BOBJECTS)
 
 clean:
 	rm -rf $(OBJECTS)
