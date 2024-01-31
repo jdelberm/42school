@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:27 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/22 23:32:28 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:45:25 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,13 @@ char	*ft_strjoin_and_free(char *str_a, char *str_b)
 	char	*res;
 
 	if (!str_a)
-		str_a = ft_strdup("");
+		return (str_b);
 	if (!str_b)
-		str_b = ft_strdup("");
+		return (str_a);
 	res = ft_strjoin(str_a, str_b);
 	free(str_a);
 	free(str_b);
+	if (!res)
+		return (0);
 	return (res);
 }

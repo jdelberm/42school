@@ -11,7 +11,7 @@ int	main(void)
 	int i;
 
 	printf("BUFFER SIZE => %i\n", BUFFER_SIZE);
-	fd = open("read_error.txt", O_RDONLY);
+	fd = open("1char.txt", O_RDONLY);
 	if (!fd)
 		return (0);
 	i = 1;
