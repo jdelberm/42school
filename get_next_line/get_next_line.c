@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/02/01 01:35:46 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/02/01 07:40:53 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,9 @@ int	ft_read_text(int fd, int *res, char **text)
 
 char	*get_next_line(int fd)
 {
-	static char *str[FD_OPEN_MAX];
-	char *text;
-	int res;
+	static char	*str[FD_OPEN_MAX];
+	char		*text;
+	int			res;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
