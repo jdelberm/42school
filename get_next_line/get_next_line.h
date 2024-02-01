@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:59:13 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/31 13:23:44 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/02/01 08:01:21 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define FD_OPEN_MAX 10240
 
 # include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
