@@ -6,7 +6,7 @@
 /*   By: judelgad <judelgad@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 20:58:41 by judelgad          #+#    #+#             */
-/*   Updated: 2024/01/31 14:49:30 by judelgad         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:13:40 by judelgad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_get_line(char *str)
 	char	*line;
 	int		i;
 	int		nfound;
+
 	/*
 	line = malloc(ft_strlen(str) + 1);
 	if (!line)
@@ -58,7 +59,7 @@ char	*ft_get_line(char *str)
 	while (str[i])
 	{
 		if (str[i++] == '\n')
-			break;
+			break ;
 	}
 	line = malloc(i + 1);
 	if (!line)
@@ -85,11 +86,14 @@ char	*ft_get_remainder(char *str, char *line)
 	if (line)
 	{
 		line_size = ft_strlen(line);
-		if(str[line_size])
+		if (str[line_size])
 			remainder = ft_strdup(&str[line_size]);
 	}
-	if(str)
+	if (str)
+	{
 		free(str);
+		str = 0;
+	}
 	return (remainder);
 }
 
@@ -104,8 +108,11 @@ int	ft_read_text(int fd, int *res, char **text)
 		buffer = malloc(BUFFER_SIZE + 1);
 		if (!buffer)
 		{
-			if(*text)
+			if (*text)
+			{
 				free(*text);
+				text = 0;
+			}
 			return (0);
 		}
 		*res = read(fd, buffer, BUFFER_SIZE);
@@ -133,13 +140,18 @@ char	*get_next_line(int fd)
 		return (0);
 	line = 0;
 	text = 0;
-	if (ft_contains_nl(str[fd]))
-		line = ft_get_line(str[fd]);
-	else
+	if (!ft_contains_nl(str[fd]))
 	{
-		if(!ft_read_text(fd, &res, &text))
-			return(0);
-		if ((!text && !str[fd] ) || res == -1 )
+		if (!ft_read_text(fd, &res, &text))
+		{
+			if (str[fd])
+			{
+				free(str[fd]);
+				str[fd] = 0;
+			}
+			return (0);
+		}
+		if ((!text && !str[fd]) || res == -1)
 		{
 			free(str[fd]);
 			str[fd] = 0;
@@ -147,8 +159,8 @@ char	*get_next_line(int fd)
 		str[fd] = ft_strjoin_and_free(str[fd], text);
 		if (!str[fd])
 			return (0);
-		line = ft_get_line(str[fd]);
 	}
+	line = ft_get_line(str[fd]);
 	str[fd] = ft_get_remainder(str[fd], line);
 	return (line);
 }

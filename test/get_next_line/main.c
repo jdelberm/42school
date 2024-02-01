@@ -11,12 +11,16 @@ int	main(void)
 	int i;
 
 	printf("BUFFER SIZE => %i\n", BUFFER_SIZE);
-	fd = open("1char.txt", O_RDONLY);
+	// variable_nls.txt => buffer 10 linea 2 da un leak
+	// 4to malloc => impresión de primera línea y primter malloc de segunda 
+	// ejecución
+	fd = open("variable_nls.txt", O_RDONLY);
 	if (!fd)
 		return (0);
 	i = 1;
 	while((line = get_next_line(fd))){
 		printf("line %i => \"%s\"\n", i++, line);
+		fd = 352;
 		free(line);
 	}
 }
